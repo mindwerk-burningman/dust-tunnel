@@ -1,4 +1,4 @@
-package osctomidi;
+package osctomidicc;
 
 import netP5.NetAddress;
 import oscP5.OscMessage;
@@ -6,11 +6,11 @@ import oscP5.OscP5;
 import processing.core.PApplet;
 import themidibus.MidiBus;
 
-public class osctomidi extends PApplet {
+public class osctomidicc extends PApplet {
     OscP5 oscP5;
     NetAddress myRemoteLocation;
     MidiBus midiBus;
-//    String channel = "MIDI Monitor (Untitled)";
+    //    String channel = "MIDI Monitor (Untitled)";
     String channel = "DustTunnel";
 
     public void settings() {

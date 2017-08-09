@@ -2,11 +2,22 @@
 
 <!-- * processing -->
 <!-- * processing in DustTunnel -->
-* osc from phone to DustTunnel
-* DustTunnel midi
-* logic
-* midi to logic
+<!-- * osc listening -->
+<!-- * osc to midi -->
+<!-- * midi notes to logic -->
+* midi controls to logic
+* headset to muze io
+* configure muze io
+* headset to DustTunnel
+* headset to DustTunnel to make a sound
+* filter headset values
+* create pad sounds / swells
+* create chord arrays
+* create scale arrays
 
-### Maybes ###
+## DustTunnel ##
 
-* learn how to do it without processing??
+* all sounds have long envelopes
+* random note selection from arrays of dorian scales
+* random duration/velocity
+* 
