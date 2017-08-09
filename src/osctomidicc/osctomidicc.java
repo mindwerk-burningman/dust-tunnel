@@ -4,14 +4,16 @@ import netP5.NetAddress;
 import oscP5.OscMessage;
 import oscP5.OscP5;
 import processing.core.PApplet;
+import themidibus.ControlChange;
 import themidibus.MidiBus;
+import themidibus.Note;
 
 public class osctomidicc extends PApplet {
     OscP5 oscP5;
     NetAddress myRemoteLocation;
     MidiBus midiBus;
-    //    String channel = "MIDI Monitor (Untitled)";
-    String channel = "DustTunnel";
+    String channel = "MIDI Monitor (Untitled)";
+//    String channel = "DustTunnel";
 
     public void settings() {
         size(200,200);
@@ -46,14 +48,24 @@ public class osctomidicc extends PApplet {
         oscP5.send(myMessage, myRemoteLocation);
     }
 
-    public void playMidi() {
+    public void playNote() {
         int channel = 1;
-        int pitch = 64;
+        int pitch = 84;
         int velocity = 127;
+        Note note = new Note(channel, pitch, velocity);
 
-        midiBus.sendNoteOn(channel, pitch, velocity); // Send a Midi noteOn
+        midiBus.sendNoteOn(note); // Send a Midi noteOn
         delay(200);
-        midiBus.sendNoteOff(channel, pitch, velocity); // Send a Midi noteOff
+        midiBus.sendNoteOff(note); // Send a Midi noteOff
+    }
+
+    public void startCC() {
+        int number = 16;
+        int channel = 1;
+        int value = 242;
+        ControlChange change = new ControlChange(channel, number, value);
+
+        midiBus.sendControllerChange(change); // Send a controllerChange
     }
 
     /** incoming osc message are forwarded to the oscEvent method. */
@@ -61,10 +73,11 @@ public class osctomidicc extends PApplet {
         /** print the address pattern and the typetag of the received OscMessage */
         println("### received an osc message.");
         println(theOscMessage);
-        playMidi();
+//        playNote();
+        startCC();
     }
 
     public static void main(String... args) {
-        PApplet.main("osctomidi.osctomidi");
+        PApplet.main("osctomidicc.osctomidicc");
     }
 }
