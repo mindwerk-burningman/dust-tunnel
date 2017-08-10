@@ -12,8 +12,8 @@ public class osctomidicc extends PApplet {
     OscP5 oscP5;
     NetAddress myRemoteLocation;
     MidiBus midiBus;
-    String channel = "MIDI Monitor (Untitled)";
-//    String channel = "DustTunnel";
+//    String channel = "MIDI Monitor (Untitled)";
+    String channel = "DustTunnel";
 
     public void settings() {
         size(200,200);

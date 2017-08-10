@@ -17,3 +17,4 @@
 
 * set up an IAC bus via "Audio MIDI Setup" > show midi environment
 * restart logic
+* calibrate IAC controller
