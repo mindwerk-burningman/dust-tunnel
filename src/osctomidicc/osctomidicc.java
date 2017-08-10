@@ -41,9 +41,9 @@ public class osctomidicc extends PApplet {
     public void mousePressed() {
         OscMessage myMessage = new OscMessage("/test");
 
-        myMessage.add("test text");
-        myMessage.add(new byte[]{0x00, 0x01, 0x10, 0x20});
-        myMessage.add(new int[]{1, 2, 3, 4});
+        myMessage.add(mouseY);
+        myMessage.add(42);
+        myMessage.add(84);
 
         oscP5.send(myMessage, myRemoteLocation);
     }
@@ -59,10 +59,11 @@ public class osctomidicc extends PApplet {
         midiBus.sendNoteOff(note); // Send a Midi noteOff
     }
 
-    public void startCC() {
+    public void startCC(int mouseY) {
         int number = 16;
-        int channel = 1;
-        int value = 242;
+        int channel = 0;
+        float rangePercentage = (float) mouseY / (float) height;
+        int value = 127 - (int) Math.floor(rangePercentage * 127);
         ControlChange change = new ControlChange(channel, number, value);
 
         midiBus.sendControllerChange(change); // Send a controllerChange
@@ -74,7 +75,8 @@ public class osctomidicc extends PApplet {
         println("### received an osc message.");
         println(theOscMessage);
 //        playNote();
-        startCC();
+        int mouseY = theOscMessage.get(0).intValue();
+        startCC(mouseY);
     }
 
     public static void main(String... args) {

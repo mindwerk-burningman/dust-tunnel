@@ -5,19 +5,30 @@
 <!-- * osc listening -->
 <!-- * osc to midi -->
 <!-- * midi notes to logic -->
-* midi controls to logic
+* osc to midi cc
+* midi cc to logic
 * headset to muze io
 * configure muze io
 * headset to DustTunnel
 * headset to DustTunnel to make a sound
-* filter headset values
+
+## Music ##
+
 * create pad sounds / swells
-* create chord arrays
-* create scale arrays
+* create chords
+* create melodies
+* all sounds have long envelopes
+* automation tracks?
 
 ## DustTunnel ##
 
-* all sounds have long envelopes
+* CC messages to assigned controls in logic
+  - tempo
+  - envelopes
+  - modulation
+* start/stop/control automation tracks
 * random note selection from arrays of dorian scales
 * random duration/velocity
-* 
+* create chord arrays
+* create scale arrays
+* filter headset values
