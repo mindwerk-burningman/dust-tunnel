@@ -39,8 +39,8 @@ public class smoothcc extends PApplet {
         float cuttoffPercentage = (float) mouseX / (float) width;
         highCutoff = (int) Math.floor(cuttoffPercentage * MAX_MIDI_VALUE);
 
-        float resPercentage = (float) mouseY / (float) width;
-        resonance = MAX_MIDI_VALUE - (int) Math.floor(cuttoffPercentage * MAX_MIDI_VALUE);
+        float resPercentage = (float) mouseY / (float) height;
+        resonance = MAX_MIDI_VALUE - (int) Math.floor(resPercentage * MAX_MIDI_VALUE);
     }
 
     public void sendCC() {
@@ -49,7 +49,7 @@ public class smoothcc extends PApplet {
             int channel = 0;
 
             ControlChange cuttoff = new ControlChange(channel, number, highCutoff);
-            ControlChange res = new ControlChange(channel, number, resonance);
+            ControlChange res = new ControlChange(channel, 17, resonance);
 
             midiBus.sendControllerChange(cuttoff);
             midiBus.sendControllerChange(res);

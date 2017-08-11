@@ -7,7 +7,8 @@
 <!-- * midi notes to logic -->
 <!-- * osc to midi cc -->
 <!-- * midi cc to logic -->
-<!-- * assign cc messages to controls/automation -->
+* assign cc messages to controls/automation
+* multiple tracks with controls
 * headset to muze io
 * configure muze io
 * headset to DustTunnel
