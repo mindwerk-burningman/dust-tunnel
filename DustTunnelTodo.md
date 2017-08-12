@@ -13,6 +13,7 @@
 * configure muze io
 * headset to DustTunnel
 * headset to DustTunnel to make a sound
+* start programs from sh script
 
 ## Music ##
 
