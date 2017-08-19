@@ -7,6 +7,7 @@ import processing.core.PApplet;
 public class osctest extends PApplet {
     OscP5 oscP5;
     NetAddress myRemoteLocation;
+    final int PORT = 9000;
 
     public void settings() {
         size(20,20);
@@ -15,7 +16,7 @@ public class osctest extends PApplet {
     public void setup() {
         frameRate(25);
         /* start oscP5, listening for incoming messages at port 12000 */
-        oscP5 = new OscP5(this,12345);
+        oscP5 = new OscP5(this, PORT);
 
       /* myRemoteLocation is a NetAddress. a NetAddress takes 2 parameters,
        * an ip address and a port number. myRemoteLocation is used as parameter in
@@ -24,7 +25,7 @@ public class osctest extends PApplet {
        * and the port of the remote location address are the same, hence you will
        * send messages back to this sketch.
        */
-        myRemoteLocation = new NetAddress("127.0.0.1",12345);
+        myRemoteLocation = new NetAddress("127.0.0.1", PORT);
     }
 
 

@@ -10,7 +10,6 @@ public class musetest extends PApplet {
 
     public void settings() {
         size(200, 200);
-//        frameRate(60);
         oscP5 = new OscP5(this, recvPort);
     }
 

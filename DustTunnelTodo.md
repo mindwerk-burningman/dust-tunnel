@@ -9,16 +9,16 @@
 <!-- * midi cc to logic -->
 <!-- * assign cc messages to controls/automation -->
 <!-- * headset to muze io -->
-* configure muze io
-* multiple tracks/instruments with controls
-* random midi notes separate tracks
 * headset to DustTunnel
 * headset to DustTunnel to make a sound
+* configure muze io
 * record and playback - http://developer.choosemuse.com/research-tools/museplayer
 * start programs from sh script
 
 ## Music ##
 
+* multiple tracks/instruments with controls
+* random midi notes separate tracks
 * create pad sounds / swells
 * create chords
 * create melodies
@@ -38,3 +38,8 @@
 * create chord arrays
 * create scale arrays
 * filter headset values
+
+## Commands ##
+
+`muse-io --device Muse-98A9`
+`muse-io --device Muse-98A9 --osc osc.udp://localhost:9000`
