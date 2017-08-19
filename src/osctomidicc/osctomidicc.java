@@ -48,17 +48,6 @@ public class osctomidicc extends PApplet {
         oscP5.send(myMessage, myRemoteLocation);
     }
 
-    public void playNote() {
-        int channel = 1;
-        int pitch = 84;
-        int velocity = 127;
-        Note note = new Note(channel, pitch, velocity);
-
-        midiBus.sendNoteOn(note); // Send a Midi noteOn
-        delay(200);
-        midiBus.sendNoteOff(note); // Send a Midi noteOff
-    }
-
     public void startCC(int mouseY) {
         int number = 16;
         int channel = 0;

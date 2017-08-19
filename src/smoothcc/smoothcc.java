@@ -9,7 +9,7 @@ import themidibus.MidiBus;
  */
 public class smoothcc extends PApplet {
     MidiBus midiBus;
-    //    String channel = "MIDI Monitor (Untitled)";
+//    String channel = "MIDI Monitor (Untitled)";
     String channel = "DustTunnel";
     int highCutoff;
     int resonance;
@@ -45,11 +45,11 @@ public class smoothcc extends PApplet {
 
     public void sendCC() {
         if (shouldSendCC) {
-            int number = 16;
+//            int number = 16;
             int channel = 0;
 
-            ControlChange cuttoff = new ControlChange(channel, number, highCutoff);
-            ControlChange res = new ControlChange(channel, 17, resonance);
+            ControlChange cuttoff = new ControlChange(channel, 7, highCutoff);
+            ControlChange res = new ControlChange(channel, 16, resonance);
 
             midiBus.sendControllerChange(cuttoff);
             midiBus.sendControllerChange(res);

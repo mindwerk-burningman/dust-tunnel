@@ -7,12 +7,14 @@
 <!-- * midi notes to logic -->
 <!-- * osc to midi cc -->
 <!-- * midi cc to logic -->
-* assign cc messages to controls/automation
-* multiple tracks with controls
-* headset to muze io
+<!-- * assign cc messages to controls/automation -->
+<!-- * headset to muze io -->
 * configure muze io
+* multiple tracks/instruments with controls
+* random midi notes separate tracks
 * headset to DustTunnel
 * headset to DustTunnel to make a sound
+* record and playback - http://developer.choosemuse.com/research-tools/museplayer
 * start programs from sh script
 
 ## Music ##
