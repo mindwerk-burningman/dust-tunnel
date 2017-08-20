@@ -14,16 +14,16 @@ public class DustTunnel extends PApplet {
     final String THETA_ADDRESS_PATTERN = "/muse/elements/theta_absolute";
     final String[] VALID_ADDRESS_PATTERNS = {ALPHA_ADDRESS_PATTERN, BETA_ADDRESS_PATTERN, GAMMA_ADDRESS_PATTERN, THETA_ADDRESS_PATTERN};
 
+    // muse model
     MuseModel alpha = new MuseModel(ALPHA_ADDRESS_PATTERN);
     MuseModel beta = new MuseModel(BETA_ADDRESS_PATTERN);
     MuseModel gamma = new MuseModel(GAMMA_ADDRESS_PATTERN);
     MuseModel theta = new MuseModel(THETA_ADDRESS_PATTERN);
     MuseModel[] models = { alpha, beta, gamma, theta };
 
+    // osc
     OscP5 oscP5;
     int PORT = 9000;
-    int FRAME_RATE = 60;
-    int NOTE_BUFFER_TIME = 3; // 3 seconds
 
     // midi
     MidiBus midiBus;
@@ -35,6 +35,14 @@ public class DustTunnel extends PApplet {
     NoteEngine channel3;
     NoteEngine[] channels = {channel1, channel2, channel3};
 
+    ControllerEngine controller16;
+    ControllerEngine controller17;
+    ControllerEngine controller18;
+    ControllerEngine controller19;
+    ControllerEngine[] controllers;
+
+    boolean isInitialized = false;
+
     public void setup() {
         frameRate(30);
 //        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
@@ -45,6 +53,19 @@ public class DustTunnel extends PApplet {
         channel1 = new NoteEngine(0, midiBus);
         channel2 = new NoteEngine(1, midiBus);
         channel3 = new NoteEngine(2, midiBus);
+
+        controller16 = new ControllerEngine(0, 16, midiBus);
+        controller17 = new ControllerEngine(1, 17, midiBus);
+        controller18 = new ControllerEngine(2, 18, midiBus);
+        controller19 = new ControllerEngine(3, 19, midiBus);
+        controllers = new ControllerEngine[4];
+        controllers[0] = controller16;
+        controllers[1] = controller17;
+        controllers[2] = controller18;
+        controllers[3] = controller19;
+
+        // ovoid getting osc messages before initialized
+        isInitialized = true;
     }
 
     public void settings() {
@@ -59,18 +80,15 @@ public class DustTunnel extends PApplet {
     }
 
     public void oscEvent(OscMessage msg) {
-//        filterMessages(msg);
-        if (msg.checkAddrPattern(ALPHA_ADDRESS_PATTERN)) {
-//            println("value: " + alpha.getValue(msg));
-//            channel1.playNote(alpha.getValue(msg));
-//            println("on notes: " + channel1.getOnNotes());
+        if (isInitialized) {
+            filterMessages(msg);
         }
     }
 
     private void filterMessages(OscMessage msg) {
-        for (MuseModel model : models) {
-            if (model.isValidMsg(msg)) {
-                println(model.getAddressPattern() + " : " + model.getValue(msg));
+        for (int i = 0; i < models.length; i++) {
+            if (models[i].isValidMsg(msg)) {
+                controllers[i].update(models[i].getValue(msg));
             }
         }
     }
