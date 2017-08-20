@@ -21,12 +21,22 @@ public class DustTunnel extends PApplet {
 
     OscP5 oscP5;
     int PORT = 9000;
+    int FRAME_RATE = 60;
+    int NOTE_BUFFER_TIME = 3; // 3 seconds
+
+    NoteEngine channel1 = new NoteEngine(1);
+    NoteEngine channel2 = new NoteEngine(2);
+    NoteEngine channel3 = new NoteEngine(3);
+    NoteEngine[] channels = {channel1, channel2, channel3};
+
+    public void setup() {
+        frameRate(60);
+//        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
+        oscP5 = new OscP5(this, PORT); // from headset
+    }
 
     public void settings() {
         size(20, 20);
-
-//        oscP5 = new OscP5(this, PORT); // from headset
-        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
     }
 
     public void draw() {
@@ -36,15 +46,17 @@ public class DustTunnel extends PApplet {
     public void oscEvent(OscMessage msg) {
 //        filterMessages(msg);
         if (msg.checkAddrPattern(ALPHA_ADDRESS_PATTERN)) {
-            println(alpha.getValue(msg));
+//            println("value: " + alpha.getValue(msg));
+            channel1.playNote(alpha.getValue(msg));
+            println("on notes: " + channel1.getOnNotes());
         }
     }
 
     private void filterMessages(OscMessage msg) {
         for (MuseModel model : models) {
-//            if (model.isValidMsg(msg)) {
-//                println(model.getAddressPattern() + " : " + model.getValue(msg));
-//            }
+            if (model.isValidMsg(msg)) {
+                println(model.getAddressPattern() + " : " + model.getValue(msg));
+            }
         }
     }
 

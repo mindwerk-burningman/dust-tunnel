@@ -119,18 +119,19 @@ public class MuseModel {
      * @return float
      */
     private float sanitize(float[] values) {
-        ArrayList<Float> goodValues = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            if (values[i] > 0) {
-                goodValues.add(values[i]);
+        float accum = 0;
+
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] <= 0) {
+                accum += 0;
+            } else if (values[i] >= 1) {
+                accum += 1;
+            } else {
+                accum += values[i];
             }
         }
 
-        float accum = 0;
-        for (Float val : goodValues) {
-                accum += val;
-        }
-        return accum / goodValues.size();
+        return accum / values.length;
     }
 
     /**
@@ -139,7 +140,7 @@ public class MuseModel {
      * @return
      */
     private float smooth(float value) {
-        if (Math.abs(value - getLast()) > MAX_VALUE_DIFF_ALLOWED) {
+        if (getLast() > 0.5f && Math.abs(value - getLast()) > MAX_VALUE_DIFF_ALLOWED) {
             return (getLast() - value) / 2.0f;
         }
         return value;
