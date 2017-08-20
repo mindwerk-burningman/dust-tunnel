@@ -42,4 +42,9 @@
 ## Commands ##
 
 `muse-io --device Muse-98A9`
+
+sending from device to 
 `muse-io --device Muse-98A9 --osc osc.udp://localhost:9000`
+
+reading file over TCP
+`muse-player -f data_recording.muse -s osc.tcp://127.0.0.1:9000`

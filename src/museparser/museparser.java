@@ -1,26 +1,24 @@
-package museplayerrcv;
+package museparser;
 
-import netP5.NetAddress;
 import oscP5.OscMessage;
 import oscP5.OscP5;
 import processing.core.PApplet;
 
-public class museplayerrcv extends PApplet {
+public class museparser extends PApplet {
     int PORT = 9000;
     OscP5 oscP5;
 
     public void settings() {
-        size(200, 200);
+        size(20, 20);
 
-        // create an oscP5 instance using TCP listening on PORT
-        oscP5 = new OscP5(this, PORT, OscP5.TCP);
+        oscP5 = new OscP5(this, PORT);
     }
 
     public void draw() {
         background(0);
     }
 
-    void oscEvent(OscMessage msg) {
+    public void oscEvent(OscMessage msg) {
         if (msg.checkAddrPattern("/muse/elements/alpha_absolute")) {
             for (int i = 0; i < 4; i++) {
                 System.out.print("alpha (" + i + "): " + msg.get(i).floatValue() + "\n");
@@ -29,6 +27,6 @@ public class museplayerrcv extends PApplet {
     }
 
     public static void main(String... args) {
-        PApplet.main("museplayerrcv.museplayerrcv");
+        PApplet.main("museparser.museparser");
     }
 }
