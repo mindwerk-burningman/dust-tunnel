@@ -11,6 +11,17 @@ public class MuseModel {
      */
     private String _addressPattern;
 
+    // max received so far
+    private float _max;
+
+    // min received so far
+    private float _min;
+
+    // last received value
+    private float _last;
+
+    private float MAX_VALUE_DIFF_ALLOWED = 0.2f;
+
     /**
      * set the signal pattern for this object
      * @param addressPattern for getting correct values
@@ -23,6 +34,52 @@ public class MuseModel {
         return _addressPattern;
     }
 
+    private float getMax() {
+        return _max;
+    }
+
+    private void setMax(float value) {
+        _max = value;
+    }
+
+    private void updateMax(float value) {
+        if (value > getMax()) {
+            setMax(value);
+        }
+    }
+
+    private float getMin() {
+        return _min;
+    }
+
+    private void setMin(float value) {
+        _min = value;
+    }
+
+    private void updateMin(float value) {
+        if (value < getMin()) {
+            setMin(value);
+        }
+    }
+
+    private float getLast() {
+        return _last;
+    }
+
+    private void setLast(float value) {
+        _last = value;
+    }
+
+    private void updateLast(float value) {
+        setLast(value);
+    }
+
+    private void update(float value) {
+        updateLast(value);
+        updateMax(value);
+        updateMin(value);
+    }
+
     /**
      * get the value for the band after sanitation / smoothing
      * @param msg from osc event
@@ -30,7 +87,8 @@ public class MuseModel {
      */
     public float getValue(OscMessage msg) {
         float[] values = getValues(msg);
-        float value = sanitize(values);
+        float value = smooth(sanitize(values));
+        update(value);
         return value;
     }
 
@@ -73,5 +131,17 @@ public class MuseModel {
                 accum += val;
         }
         return accum / goodValues.size();
+    }
+
+    /**
+     * smooth the value jumps, split the difference
+     * @param value already santized
+     * @return
+     */
+    private float smooth(float value) {
+        if (Math.abs(value - getLast()) > MAX_VALUE_DIFF_ALLOWED) {
+            return (getLast() - value) / 2.0f;
+        }
+        return value;
     }
 }

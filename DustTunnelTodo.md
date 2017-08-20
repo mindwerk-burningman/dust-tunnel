@@ -9,7 +9,7 @@
 <!-- * midi cc to logic -->
 <!-- * assign cc messages to controls/automation -->
 <!-- * headset to muze io -->
-* headset to DustTunnel
+<!-- * headset to DustTunnel -->
 * headset to DustTunnel to make a sound
 * configure muze io
 * record and playback - http://developer.choosemuse.com/research-tools/museplayer
@@ -27,6 +27,8 @@
 
 ## DustTunnel ##
 
+* `NoteFactory`
+* `ControlChangeFactory`
 * smoothing algo inbetween CC messages
 * CC messages to assigned controls in logic
   - tempo
