@@ -3,13 +3,17 @@ package dusttunnel;
 import themidibus.MidiBus;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NoteEngine {
     MidiBus midiBus;
     private int _channel;
     private int[] _scale = {49, 51, 52, 54, 56, 57, 59}; // default dorian
     private int MAX_VELOCITY_ALLOWED = 127;
+    private float NOTE_ON_PROBABILITY = 0.008f;
+    private float NOTE_OFF_PROBABILITY = 0.05f;
     private ArrayList<Integer> _onNotes = new ArrayList<>();
+    private Random random = new Random();
 
     public NoteEngine(int channel) {
         _channel = channel;
@@ -19,6 +23,19 @@ public class NoteEngine {
     public NoteEngine(int[] scale) {
         _scale = scale;
         initMidiBus();
+    }
+
+    /**
+     * randomly play notes
+     */
+    public void update() {
+        if (Math.random() < NOTE_ON_PROBABILITY) {
+            playNote();
+        }
+
+        if (Math.random() < NOTE_OFF_PROBABILITY) {
+            stopNote();
+        }
     }
 
     private void initMidiBus() {
@@ -34,17 +51,16 @@ public class NoteEngine {
     }
 
     private int getNoteNumber() {
-        int index = (int) Math.floor(Math.random() * getScale().length - 1);
-        return getScale()[index];
+        int[] scale = getScale();
+        return scale[random.nextInt(scale.length)];
     }
 
     /**
      * make a reasonable velocity based on muze value
-     * @param value MuseModel value between 0 & 1
      * @return velocity
      */
-    private int getVelocity(float value) {
-        int velocity = (int) Math.floor(MAX_VELOCITY_ALLOWED * value);
+    private int getVelocity() {
+        int velocity = (int) Math.floor(MAX_VELOCITY_ALLOWED * Math.random());
         return velocity;
     }
 
@@ -61,21 +77,22 @@ public class NoteEngine {
     }
 
     private int getOnNoteIndex() {
-        int size = getOnNotes().size();
-        return (int) Math.floor(Math.random() * size - 1);
+        int randomIndex = random.nextInt(getOnNotes().size());
+        return randomIndex;
     }
 
 
     /**
      * get a note, send note on message, delay and note off message
      */
-    public void playNote(float value) {
+    public void playNote() {
         int noteNumber = getNoteNumber();
         int channel = getChannel();
-        int velocity = getVelocity(value);
+        int velocity = getVelocity();
 
         midiBus.sendNoteOn(channel, noteNumber, velocity); // Send a Midi noteOn
         updateOnNotes(noteNumber);
+        System.out.print("on notes: " + getOnNotes() + "\n");
     }
 
     public void stopNote() {

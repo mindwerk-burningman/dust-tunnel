@@ -30,7 +30,7 @@ public class DustTunnel extends PApplet {
     NoteEngine[] channels = {channel1, channel2, channel3};
 
     public void setup() {
-        frameRate(60);
+        frameRate(30);
 //        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
         oscP5 = new OscP5(this, PORT); // from headset
     }
@@ -41,14 +41,15 @@ public class DustTunnel extends PApplet {
 
     public void draw() {
         background(0);
+        channel1.update();
     }
 
     public void oscEvent(OscMessage msg) {
 //        filterMessages(msg);
         if (msg.checkAddrPattern(ALPHA_ADDRESS_PATTERN)) {
 //            println("value: " + alpha.getValue(msg));
-            channel1.playNote(alpha.getValue(msg));
-            println("on notes: " + channel1.getOnNotes());
+//            channel1.playNote(alpha.getValue(msg));
+//            println("on notes: " + channel1.getOnNotes());
         }
     }
 
