@@ -42,7 +42,9 @@
 
 <!-- * `NoteFactory` -->
 <!-- * `ControlChangeFactory` -->
-<!-- * smoothing algo inbetween CC messages -->
+* smoothing algo inbetween values/CC messages
+  - big jumps should send out multiple messages (over time?)
+  <!-- - update ranges -->
 * attention triggers
   - combining all brain waves?
   - raises limit on note ons for sparkles
@@ -61,4 +63,4 @@ sending from device to
 `muse-io --device Muse-98A9 --osc osc.udp://localhost:9000`
 
 reading file over TCP
-`muse-player -f data_recording.muse -s osc.tcp://127.0.0.1:9000`
+`muse-player -f muselab_recording.muse -s osc.tcp://127.0.0.1:9000`

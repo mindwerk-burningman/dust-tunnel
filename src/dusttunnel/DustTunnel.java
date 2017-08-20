@@ -14,10 +14,10 @@ public class DustTunnel extends PApplet {
     final String THETA_ADDRESS_PATTERN = "/muse/elements/theta_absolute";
 
     // muse model
-    MuseModel alpha = new MuseModel(ALPHA_ADDRESS_PATTERN);
+    MuseModel alpha = new MuseModel(ALPHA_ADDRESS_PATTERN, 0.75f);
     MuseModel beta = new MuseModel(BETA_ADDRESS_PATTERN);
     MuseModel gamma = new MuseModel(GAMMA_ADDRESS_PATTERN);
-    MuseModel theta = new MuseModel(THETA_ADDRESS_PATTERN);
+    MuseModel theta = new MuseModel(THETA_ADDRESS_PATTERN, 0.5f);
     MuseModel[] models = { alpha, beta, gamma, theta };
 
     // osc
@@ -30,7 +30,7 @@ public class DustTunnel extends PApplet {
     String MIDI_BUS_CHANNEL = "DustTunnel";
     int NUM_NOTE_ENGINES = 4;
     int NUM_CONTROLLER_ENGINES = 4;
-    int CONTROLLER_NUMBER_OFFSET = 9;
+    int CONTROLLER_NUMBER_OFFSET = 0;
 
     NoteEngine[] noteEngines = new NoteEngine[NUM_NOTE_ENGINES];
     ControllerEngine[] controllerEngines = new ControllerEngine[NUM_CONTROLLER_ENGINES];
@@ -41,8 +41,8 @@ public class DustTunnel extends PApplet {
     public void setup() {
         noLoop();
 
-//        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
-        oscP5 = new OscP5(this, PORT); // from headset
+        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
+//        oscP5 = new OscP5(this, PORT); // from headset
 
         MidiBus.list();
         midiBus = new MidiBus(this, -1, MIDI_BUS_CHANNEL);
@@ -67,7 +67,8 @@ public class DustTunnel extends PApplet {
     }
 
     private void initAttentionEngine() {
-         attentionEngine = new AttentionEngine(models);
+        MuseModel[] models = {alpha, gamma};
+        attentionEngine = new AttentionEngine(models);
     }
 
     public void settings() {
@@ -82,7 +83,7 @@ public class DustTunnel extends PApplet {
     }
 
     private void drawModels() {
-        int bandWidth = width / models.length;
+        int bandWidth = width / (models.length + 1);
         float b = 0;
         for (int i = 0; i < models.length; i++) {
             float x = bandWidth * i;
@@ -94,6 +95,16 @@ public class DustTunnel extends PApplet {
             fill(r + 40, g, b);
             rect(x, y, bandWidth, height);
         }
+
+        // draw attention
+        float x = bandWidth * models.length + 1;
+        float last = attentionEngine.getLast();
+        float y = height - (height * last);
+        float percentHeight = y / height;
+        float r = 255 - (255 * percentHeight);
+        float g = 255 - r;
+        fill(r + 40, g, b);
+        rect(x, y, bandWidth, height);
     }
 
     private void updateSystems(MuseModel model, OscMessage msg, int modelIndex) {

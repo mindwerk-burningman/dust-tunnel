@@ -11,16 +11,19 @@ public class MuseModel {
      */
     private String _addressPattern;
 
-    // max received so far
-    private float _max;
+    // max avg received so far
+    protected float _max = 1;
 
-    // min received so far
-    private float _min;
+    // min avg received so far
+    protected float _min = 0;
 
-    // last received value
-    private float _last;
+    // last received value in range
+    protected float _last;
 
-    private float MAX_VALUE_DIFF_ALLOWED = 0.2f;
+    // for modifying noisy waves down
+    protected float _valueK = 1;
+
+    protected float MAX_VALUE_DIFF_ALLOWED = 0.2f;
 
     /**
      * set the signal pattern for this object
@@ -30,33 +33,42 @@ public class MuseModel {
         _addressPattern = addressPattern;
     }
 
+    public MuseModel(String addressPattern, float valueK) {
+        _addressPattern = addressPattern;
+        _valueK= valueK;
+    }
+
+    protected float getValueK() {
+        return _valueK;
+    }
+
     public String getAddressPattern() {
         return _addressPattern;
     }
 
-    private float getMax() {
+    public float getMax() {
         return _max;
     }
 
-    private void setMax(float value) {
+    protected void setMax(float value) {
         _max = value;
     }
 
-    private void updateMax(float value) {
+    protected void updateMax(float value) {
         if (value > getMax()) {
             setMax(value);
         }
     }
 
-    private float getMin() {
+    public float getMin() {
         return _min;
     }
 
-    private void setMin(float value) {
+    protected void setMin(float value) {
         _min = value;
     }
 
-    private void updateMin(float value) {
+    protected void updateMin(float value) {
         if (value < getMin()) {
             setMin(value);
         }
@@ -66,16 +78,19 @@ public class MuseModel {
         return _last;
     }
 
-    private void setLast(float value) {
+    protected void setLast(float value) {
         _last = value;
     }
 
-    private void updateLast(float value) {
+    protected void updateLast(float value) {
         setLast(value);
     }
 
     private void update(float value) {
         updateLast(value);
+    }
+
+    private void updateRange(float value) {
         updateMax(value);
         updateMin(value);
     }
@@ -87,9 +102,20 @@ public class MuseModel {
      */
     public float getValue(OscMessage msg) {
         float[] values = getValues(msg);
-        float value = smooth(sanitize(values));
+        float averaged = getCleanAverage(values);
+        updateRange(averaged);
+        float value = calculateValueInRange(averaged);
         update(value);
         return value;
+    }
+
+    // (v - min) / r
+    protected float calculateValueInRange(float value) {
+        float max = getMax();
+        float min = getMin();
+        float range = max - min;
+        float valueInRange = (value - min) / range;
+        return valueInRange;//  * getValueK();
     }
 
     /**
@@ -114,25 +140,28 @@ public class MuseModel {
     }
 
     /**
-     * drop outlier values then add smoothing and avg the values
-     * @param values values to sanitize
+     * drop outlier values and avg the values
+     * @param values values to average
      * @return float
      */
-    private float sanitize(float[] values) {
+    protected float getCleanAverage(float[] values) {
         float accum = 0;
+        int validValuesCount = 0;
 
         for (int i = 0; i < values.length; i++) {
-            if (values[i] <= 0) {
-                accum += 0;
-            } else if (values[i] >= 1) {
-                accum += 1;
-            } else {
-                accum += values[i];
+            if (values[i] != 0) {
+                validValuesCount++;
             }
+            accum += values[i];
         }
 
-        return accum / values.length;
+        if (validValuesCount != 0) {
+            float mean = accum / validValuesCount;
+            return mean;
+        }
+        return 0;
     }
+
 
     /**
      * smooth the value jumps, split the difference
