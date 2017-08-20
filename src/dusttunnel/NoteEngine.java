@@ -14,6 +14,10 @@ public class NoteEngine {
     private int MAX_VELOCITY_ALLOWED = 80;
     private float NOTE_ON_PROBABILITY = 0.008f;
     private float NOTE_OFF_PROBABILITY = 0.05f;
+    private float CHANGE_OCTAVE_PROBABILITY = 0.02f;
+    private float DROP_OCTAVE_PROBABILITY = 0.02f;
+    private int OCTAVE_SPAN = 3;
+
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
 
@@ -45,7 +49,19 @@ public class NoteEngine {
 
     private int getNoteNumber() {
         int[] scale = getScale();
-        return scale[random.nextInt(scale.length)];
+        int pitch = scale[random.nextInt(scale.length)];
+
+        // change octave?
+        if (Math.random() < CHANGE_OCTAVE_PROBABILITY) {
+            int octaveMultiplier = random.nextInt(OCTAVE_SPAN);
+
+            // drop octave
+            if (Math.random() < DROP_OCTAVE_PROBABILITY) {
+                octaveMultiplier = octaveMultiplier * -1;
+            }
+            pitch = pitch + (octaveMultiplier * 12);
+        }
+        return pitch;
     }
 
     /**

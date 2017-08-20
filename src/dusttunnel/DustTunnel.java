@@ -42,9 +42,9 @@ public class DustTunnel extends PApplet {
 
         MidiBus.list();
         midiBus = new MidiBus(this, -1, MIDI_BUS_CHANNEL);
-        channel1 = new NoteEngine(1, midiBus);
-        channel2 = new NoteEngine(2, midiBus);
-        channel3 = new NoteEngine(3, midiBus);
+        channel1 = new NoteEngine(0, midiBus);
+        channel2 = new NoteEngine(1, midiBus);
+        channel3 = new NoteEngine(2, midiBus);
     }
 
     public void settings() {
@@ -54,6 +54,8 @@ public class DustTunnel extends PApplet {
     public void draw() {
         background(0);
         channel1.update();
+        channel2.update();
+        channel3.update();
     }
 
     public void oscEvent(OscMessage msg) {
