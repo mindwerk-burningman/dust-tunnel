@@ -6,23 +6,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class NoteEngine {
-    MidiBus midiBus;
+    MidiBus midiBus; // shared throughout program
+
     private int _channel;
+    private String _iacBus;
     private int[] _scale = {49, 51, 52, 54, 56, 57, 59}; // default dorian
-    private int MAX_VELOCITY_ALLOWED = 127;
+    private int MAX_VELOCITY_ALLOWED = 80;
     private float NOTE_ON_PROBABILITY = 0.008f;
     private float NOTE_OFF_PROBABILITY = 0.05f;
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
 
-    public NoteEngine(int channel) {
+    public NoteEngine(int channel, MidiBus midiBus) {
         _channel = channel;
-        initMidiBus();
-    }
-
-    public NoteEngine(int[] scale) {
-        _scale = scale;
-        initMidiBus();
+        this.midiBus = midiBus;
     }
 
     /**
@@ -36,10 +33,6 @@ public class NoteEngine {
         if (Math.random() < NOTE_OFF_PROBABILITY) {
             stopNote();
         }
-    }
-
-    private void initMidiBus() {
-        midiBus = new MidiBus(this, -1, getChannel());
     }
 
     private int getChannel() {

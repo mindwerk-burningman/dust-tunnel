@@ -12,7 +12,7 @@
 <!-- * headset to DustTunnel -->
 * headset to DustTunnel to make a sound
 * configure muze io
-* record and playback - http://developer.choosemuse.com/research-tools/museplayer
+<!-- * record and playback - http://developer.choosemuse.com/research-tools/museplayer -->
 * start programs from sh script
 
 ## Music ##

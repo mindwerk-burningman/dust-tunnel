@@ -3,6 +3,7 @@ package dusttunnel;
 import oscP5.OscMessage;
 import oscP5.OscP5;
 import processing.core.PApplet;
+import themidibus.MidiBus;
 
 public class DustTunnel extends PApplet {
 
@@ -24,15 +25,26 @@ public class DustTunnel extends PApplet {
     int FRAME_RATE = 60;
     int NOTE_BUFFER_TIME = 3; // 3 seconds
 
-    NoteEngine channel1 = new NoteEngine(1);
-    NoteEngine channel2 = new NoteEngine(2);
-    NoteEngine channel3 = new NoteEngine(3);
+    // midi
+    MidiBus midiBus;
+//    String MIDI_BUS_CHANNEL = "MIDI Monitor (Untitled)";
+    String MIDI_BUS_CHANNEL = "DustTunnel";
+
+    NoteEngine channel1;
+    NoteEngine channel2;
+    NoteEngine channel3;
     NoteEngine[] channels = {channel1, channel2, channel3};
 
     public void setup() {
         frameRate(30);
 //        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
         oscP5 = new OscP5(this, PORT); // from headset
+
+        MidiBus.list();
+        midiBus = new MidiBus(this, -1, MIDI_BUS_CHANNEL);
+        channel1 = new NoteEngine(1, midiBus);
+        channel2 = new NoteEngine(2, midiBus);
+        channel3 = new NoteEngine(3, midiBus);
     }
 
     public void settings() {
