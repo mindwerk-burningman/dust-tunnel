@@ -10,33 +10,45 @@
 <!-- * assign cc messages to controls/automation -->
 <!-- * headset to muze io -->
 <!-- * headset to DustTunnel -->
-* headset to DustTunnel to make a sound
-* configure muze io
+<!-- * headset to DustTunnel to make a sound -->
+<!-- * configure muze io -->
 <!-- * record and playback - http://developer.choosemuse.com/research-tools/museplayer -->
 * start programs from sh script
 
 ## Music ##
 
-* multiple tracks/instruments with controls
-* random midi notes separate tracks
-* create pad sounds / swells
-* create chords
-* create melodies
-* all sounds have long envelopes
-* automation tracks?
+<!-- * multiple tracks/instruments with controls -->
+<!-- * random midi notes separate tracks -->
+* create three tracks
+  - low droney sounds
+    + drops octaves
+    + really long release
+  - pad swells
+    + mid range
+    + uses chords?
+  - sparkles
+    + raises octaves
+    + short ASDR
+    + lots of reverb
+* CC messages to assigned controls in logic
+  - reverb / delay amounts
+  - allowing slow LFO modulation
+  - high cut
+  - low cut + high cut
+* add limits to the control changes in logic
+<!-- * create melodies -->
 
 ## DustTunnel ##
 
-* `NoteFactory`
-* `ControlChangeFactory`
-* smoothing algo inbetween CC messages
-* CC messages to assigned controls in logic
-  - tempo
-  - envelopes
-  - modulation
-* start/stop/control automation tracks
-* random note selection from arrays of dorian scales
-* random duration/velocity
+<!-- * `NoteFactory` -->
+<!-- * `ControlChangeFactory` -->
+<!-- * smoothing algo inbetween CC messages -->
+* attention triggers
+  - combining all brain waves?
+  - raises limit on note ons for sparkles
+  - for bass notes?
+<!-- * random note selection from arrays of dorian scales -->
+<!-- * random duration/velocity -->
 * create chord arrays
 * create scale arrays
 * filter headset values

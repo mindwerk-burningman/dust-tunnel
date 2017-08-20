@@ -9,7 +9,6 @@ public class NoteEngine {
     MidiBus midiBus; // shared throughout program
 
     private int _channel;
-    private String _iacBus;
     private int[] _scale = {49, 51, 52, 54, 56, 57, 59}; // default dorian
     private int MAX_VELOCITY_ALLOWED = 80;
     private float NOTE_ON_PROBABILITY = 0.008f;

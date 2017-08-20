@@ -9,7 +9,9 @@ public class ControllerEngine {
 
     private int _channel;
     private int _controllerNumber;
+    private int _last;
     private int MAX_CONTROLLER_VALUE = 127;
+    private int MAX_VALUE_DIFF = 10;
 
     public ControllerEngine(int channel, int controllerNumber, MidiBus midiBus) {
         _channel = channel;
@@ -25,9 +27,32 @@ public class ControllerEngine {
         return _controllerNumber;
     }
 
+    private void setLast(int value) {
+        _last = value;
+    }
+
+    private int getLast() {
+        return _last;
+    }
+
+    private int smooth(int value) {
+        int last = getLast();
+        int diff = value - last;
+
+        if (last > 0 && Math.abs(diff) > MAX_VALUE_DIFF) {
+            return value + (int) Math.floor(diff / 2);
+        }
+        return value;
+    }
+
     public void update(float value) {
         int controllerValue = (int) Math.floor(value * MAX_CONTROLLER_VALUE);
-        ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), controllerValue);
+        int smoothed = smooth(controllerValue);
+//        if (getControllerNumber() == 9) {
+//            System.out.print(smoothed + "\n");
+//        }
+        ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), smoothed);
         midiBus.sendControllerChange(controlChange);
+        setLast(smoothed);
     }
 }

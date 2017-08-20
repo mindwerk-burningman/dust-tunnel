@@ -62,7 +62,7 @@ public class MuseModel {
         }
     }
 
-    private float getLast() {
+    public float getLast() {
         return _last;
     }
 
