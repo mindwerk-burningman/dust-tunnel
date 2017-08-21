@@ -5,7 +5,6 @@ import oscP5.OscP5;
 import processing.core.PApplet;
 import themidibus.MidiBus;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,6 +17,8 @@ public class DustTunnel extends PApplet {
     final String GAMMA_ADDRESS_PATTERN = "/muse/elements/gamma_absolute";
     final String THETA_ADDRESS_PATTERN = "/muse/elements/theta_absolute";
     final String IS_GOOD = "/muse/elements/is_good";
+    final String LIGHT_ENGINE_1_ADDRESS_PATTERN = "/sean/alhpa";
+    final String LIGHT_ENGINE_2_ADDRESS_PATTERN = "/sean/beta";
 
     // muse model
     MuseModel alpha;
@@ -28,7 +29,7 @@ public class DustTunnel extends PApplet {
 
     Timer timer = new Timer();
     private boolean shouldCheckHeadbandStatus = false;
-    private long STATUS_CHECK_RATE = 1000L;
+    final long STATUS_CHECK_RATE = 1000L;
 
     // osc
     OscP5 oscP5;
@@ -42,12 +43,13 @@ public class DustTunnel extends PApplet {
     int CONTROLLER_NUMBER_OFFSET = 0;
     int NUM_NOTE_ENGINES = 3;
 
+    // engines
     NoteEngine[] noteEngines = new NoteEngine[NUM_NOTE_ENGINES];
     ControllerEngine[] controllerEngines = new ControllerEngine[NUM_CONTROLLER_ENGINES];
     AttentionEngine attentionEngine;
-    LightEngine lightEngineAll;
-    LightEngine lightEngineSome;
-    LightEngine[] lightEngines;
+    LightEngine lightEngine1;
+    LightEngine lightEngine2;
+    LightEngine[] lightEngines = new LightEngine[2];
 
     boolean shouldReceiveMessages = false; // control flow switch
 
@@ -57,8 +59,8 @@ public class DustTunnel extends PApplet {
     }
 
     private void init() {
-//        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
-        oscP5 = new OscP5(this, PORT); // from headset
+        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
+//        oscP5 = new OscP5(this, PORT); // from headset
 
         MidiBus.list();
         midiBus = new MidiBus(this, -1, MIDI_BUS_CHANNEL);
@@ -93,14 +95,18 @@ public class DustTunnel extends PApplet {
     }
 
     private void initNoteEngines() {
-        NoteEngine bassDrones = new NoteEngine(1, midiBus);
-        bassDrones.setOctaveOffset(2);
+        NoteEngine bass = new NoteEngine(1, midiBus);
+        bass.setOctaveOffset(2);
 
         NoteEngine pads = new NoteEngine(2, midiBus);
         pads.setOctaveOffset(4);
 
         NoteEngine sparkles = new NoteEngine(3, midiBus);
         sparkles.setOctaveOffset(6);
+
+        noteEngines[0] = bass;
+        noteEngines[1] = pads;
+        noteEngines[2] = sparkles;
     }
 
     private void initControllerEngines() {
@@ -117,10 +123,12 @@ public class DustTunnel extends PApplet {
     private void initLightEngine() {
         MuseModel[] all = {alpha, beta, gamma};
         MuseModel[] some = {alpha, beta};
-        lightEngineAll = new LightEngine(all);
-        lightEngineSome = new LightEngine(some);
-        lightEngines[0] = lightEngineAll;
-        lightEngines[1] = lightEngineSome;
+        lightEngine1 = new LightEngine(all);
+        lightEngine1.setAddressPattern(LIGHT_ENGINE_1_ADDRESS_PATTERN);
+        lightEngine2 = new LightEngine(some);
+        lightEngine2.setAddressPattern(LIGHT_ENGINE_2_ADDRESS_PATTERN);
+        lightEngines[0] = lightEngine1;
+        lightEngines[1] = lightEngine2;
     }
 
     public void settings() {

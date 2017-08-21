@@ -13,20 +13,21 @@ public class LightEngine extends AttentionEngine {
     NetAddress remoteAddress;
     Timer timer;
 
-    private MuseModel[] _models;
+    final MuseModel[] _models;
     private float _valueK = 1;
     private int _status = 0;
 
     private String _addressPattern;
-    private String HOST = "10.0.1.5";
-    private int PORT = 9000;
+    final String HOST = "10.0.1.5";
+    final int PORT = 9000;
 
-    private long FADE_OUT_RATE = 500L;
-    private float FADE_OUT_AMOUNT = 0.05f;
+    final long FADE_OUT_RATE = 500L;
+    final float FADE_OUT_AMOUNT = 0.05f;
 
     public LightEngine(MuseModel[] models) {
         super(models);
         _models = models;
+        oscP5 = new OscP5(this, PORT);
         remoteAddress = new NetAddress(HOST, PORT);
     }
 
@@ -74,7 +75,7 @@ public class LightEngine extends AttentionEngine {
         _valueK = k;
     }
 
-    private String getAddress() {
+    private String getAddressPattern() {
         return _addressPattern;
     }
 
@@ -83,11 +84,15 @@ public class LightEngine extends AttentionEngine {
     }
 
     private void send(int status, float value) {
-        String address = getAddress();
-        OscMessage msg = new OscMessage(address);
+        String addressPatter = getAddressPattern();
+        OscMessage msg = new OscMessage(addressPatter);
         msg.add(status);
         msg.add(value);
 
-        oscP5.send(msg, remoteAddress);
+        try {
+            oscP5.send(msg, remoteAddress);
+        } catch (Error e) {
+            // e
+        }
     }
 }

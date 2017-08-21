@@ -13,8 +13,8 @@ public class ControllerEngine {
     private int _channel;
     private int _controllerNumber;
     private int _last;
-    private int MAX_CONTROLLER_VALUE = 127;
-    private int MAX_VALUE_DIFF = 10;
+    final int MAX_CONTROLLER_VALUE = 127;
+    final int MAX_VALUE_DIFF = 10;
     private Timer timer = new Timer();
 
     public ControllerEngine(int channel, int controllerNumber, MidiBus midiBus) {
@@ -52,9 +52,6 @@ public class ControllerEngine {
     public void update(float value) {
         int controllerValue = (int) Math.floor(value * MAX_CONTROLLER_VALUE);
         int smoothed = smooth(controllerValue);
-//        if (getControllerNumber() == 9) {
-//            System.out.print(smoothed + "\n");
-//        }
         ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), smoothed);
         midiBus.sendControllerChange(controlChange);
         setLast(smoothed);
