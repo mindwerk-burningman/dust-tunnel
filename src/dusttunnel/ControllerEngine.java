@@ -3,6 +3,9 @@ package dusttunnel;
 import themidibus.ControlChange;
 import themidibus.MidiBus;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ControllerEngine {
 
     MidiBus midiBus;
@@ -12,6 +15,7 @@ public class ControllerEngine {
     private int _last;
     private int MAX_CONTROLLER_VALUE = 127;
     private int MAX_VALUE_DIFF = 10;
+    private Timer timer = new Timer();
 
     public ControllerEngine(int channel, int controllerNumber, MidiBus midiBus) {
         _channel = channel;
@@ -54,5 +58,27 @@ public class ControllerEngine {
         ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), smoothed);
         midiBus.sendControllerChange(controlChange);
         setLast(smoothed);
+    }
+
+    private void decLast() {
+        int newLast = getLast() - 1;
+        ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), newLast);
+        midiBus.sendControllerChange(controlChange);
+        setLast(newLast);
+        if (newLast == 0) {
+            timer.cancel();
+        }
+    }
+
+    public void reset() {
+        TimerTask resetTask = new TimerTask() {
+            public void run() {
+                decLast();
+            }
+        };
+
+        long delay  = 0L;
+        long period = 500L;
+        timer.scheduleAtFixedRate(resetTask, delay, period);
     }
 }

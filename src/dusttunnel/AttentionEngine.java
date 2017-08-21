@@ -1,5 +1,10 @@
 package dusttunnel;
 
+import themidibus.ControlChange;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class AttentionEngine {
     private MuseModel[] _models;
     private boolean _isAttentionGrowing = false;

@@ -38,6 +38,12 @@ public class NoteEngine {
         }
     }
 
+    public void reset() {
+        for (int i = 0; i < getOnNotes().size(); i++) {
+            stopNote();
+        }
+    }
+
     private int getChannel() {
         return _channel;
     }

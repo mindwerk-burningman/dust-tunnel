@@ -30,12 +30,13 @@
     + raises octaves
     + short ASDR
     + lots of reverb
-* CC messages to assigned controls in logic
+* CC messages
   - reverb / delay amounts
   - allowing slow LFO modulation
   - high cut
   - low cut + high cut
-* add limits to the control changes in logic
+  - determine best default states
+    + what should happen when values raise
 <!-- * create melodies -->
 
 ## DustTunnel ##
@@ -46,14 +47,15 @@
   - big jumps should send out multiple messages (over time?)
   <!-- - update ranges -->
 * attention triggers
-  - combining all brain waves?
   - raises limit on note ons for sparkles
-  - for bass notes?
+  - raises high pass and modulation on bass
 <!-- * random note selection from arrays of dorian scales -->
 <!-- * random duration/velocity -->
-* create chord arrays
-* create scale arrays
-* filter headset values
+* chord arrays
+* scale arrays
+* stopped signal (change person or takes off)
+  <!-- - fade back to default state -->
+  - change root note and scale
 
 ## Commands ##
 
