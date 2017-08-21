@@ -21,12 +21,12 @@ public class MuseModel {
     protected float _last;
 
     // for modifying noisy waves down
-    protected float K = 1;
-
-    protected float MAX_VALUE_DIFF_ALLOWED = 0.2f;
+    protected float K = 1.0f;
 
     final float INC_DEC_AMOUNT = 0.0001f;
-    final float DIFF_LIMITER = 0.15f;
+
+    // larger values = more limiting
+    final float DIFF_LIMITER = 0.45f;
 
     /**
      * set the signal pattern for this object
@@ -36,13 +36,9 @@ public class MuseModel {
         _addressPattern = addressPattern;
     }
 
-    public MuseModel(String addressPattern, float valueK) {
+    public MuseModel(String addressPattern, float K) {
         _addressPattern = addressPattern;
-        K = valueK;
-    }
-
-    protected float getValueK() {
-        return K;
+        this.K = K;
     }
 
     public String getAddressPattern() {
@@ -142,7 +138,7 @@ public class MuseModel {
      */
     public float getValue(OscMessage msg) {
         float[] values = getValues(msg);
-        float averaged = getCleanAverage(values) * getValueK();
+        float averaged = getCleanAverage(values) * K;
         updateRange(averaged);
         float value = getNextValue(averaged);
         updateLast(value);
@@ -191,18 +187,5 @@ public class MuseModel {
             return mean;
         }
         return 0;
-    }
-
-
-    /**
-     * smooth the value jumps, split the difference
-     * @param value already santized
-     * @return
-     */
-    private float smooth(float value) {
-        if (getLast() > 0.5f && Math.abs(value - getLast()) > MAX_VALUE_DIFF_ALLOWED) {
-            return (getLast() - value) / 2.0f;
-        }
-        return value;
     }
 }

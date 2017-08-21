@@ -2,13 +2,12 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" line="74" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="136" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="56" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="107" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="137" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="57" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="103" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a6c5f0-0977-4df4-8f2c-46dd282dd4e1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DustTunnelTodo.md" afterPath="$PROJECT_DIR$/DustTunnelTodo.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" afterPath="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" afterPath="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" />
     </list>
@@ -37,14 +36,14 @@
       <file leaf-file-name="DustTunnel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
-                <element signature="e#2456#2457#0" expanded="true" />
-                <element signature="e#2520#2521#0" expanded="true" />
+                <element signature="e#2489#2490#0" expanded="true" />
+                <element signature="e#2553#2554#0" expanded="true" />
                 <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
@@ -63,14 +62,14 @@
       <file leaf-file-name="MuseModel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+            <state relative-caret-position="216">
+              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1086#1087#0" expanded="true" />
-                <element signature="e#1124#1125#0" expanded="true" />
-                <element signature="e#1862#1863#0" expanded="true" />
-                <element signature="e#1895#1896#0" expanded="true" />
+                <element signature="method#MuseModel#1;class#MuseModel#0" expanded="false" />
+                <element signature="method#updateMax#0;class#MuseModel#0" expanded="false" />
+                <element signature="method#updateMin#0;class#MuseModel#0" expanded="false" />
+                <element signature="method#updateRange#0;class#MuseModel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -970,7 +969,7 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="161" />
+      <option name="time" value="162" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -987,8 +986,8 @@
             <element signature="imports" expanded="true" />
             <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
-            <element signature="e#2456#2457#0" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
             <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
@@ -1275,14 +1274,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
-            <element signature="e#2456#2457#0" expanded="true" />
-            <element signature="e#2520#2521#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
             <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
@@ -1299,14 +1298,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="107" column="35" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+        <state relative-caret-position="216">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1086#1087#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="method#MuseModel#1;class#MuseModel#0" expanded="false" />
+            <element signature="method#updateMax#0;class#MuseModel#0" expanded="false" />
+            <element signature="method#updateMin#0;class#MuseModel#0" expanded="false" />
+            <element signature="method#updateRange#0;class#MuseModel#0" expanded="false" />
           </folding>
         </state>
       </provider>

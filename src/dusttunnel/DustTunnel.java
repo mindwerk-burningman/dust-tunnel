@@ -27,6 +27,7 @@ public class DustTunnel extends PApplet {
     MuseModel theta;
     MuseModel[] models = new MuseModel[4];
 
+    // lower values = less noise
     final float ALPHA_K = 0.75f;
     final float BETA_K = 1.0f;
     final float GAMMA_K = 1.0f;
