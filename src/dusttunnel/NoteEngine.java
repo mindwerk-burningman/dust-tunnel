@@ -13,10 +13,11 @@ public class NoteEngine {
     private int[] _scale = {0, 4, 7, 11, 14, 18, 21}; // maj9#11 13
     private int _rootOffset = 0;
     private int _octaveOffset = 0;
-    private int MAX_VELOCITY_ALLOWED = 80;
-    private float NOTE_ON_PROBABILITY = 0.008f;
-    private float NOTE_OFF_PROBABILITY = 0.05f;
-    private float ODD_NOTE_PROBABILITY = 0.05f;
+    private int _notesAtATime = 1;
+    private int _maxVelocityAllowed = 127;
+    private float _noteOnProbability = 0.008f;
+    private float _noteOffProbability = 0.05f;
+    final float ODD_NOTE_PROBABILITY = 0.05f;
 
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
@@ -30,11 +31,11 @@ public class NoteEngine {
      * randomly play notes
      */
     public void update() {
-        if (Math.random() < NOTE_ON_PROBABILITY) {
+        if (Math.random() < _noteOnProbability) {
             playNote();
         }
 
-        if (Math.random() < NOTE_OFF_PROBABILITY) {
+        if (Math.random() < _noteOffProbability) {
             stopNote();
         }
     }
@@ -84,7 +85,7 @@ public class NoteEngine {
      * @return velocity
      */
     private int getVelocity() {
-        int velocity = (int) Math.floor(MAX_VELOCITY_ALLOWED * Math.random());
+        int velocity = (int) Math.floor(_maxVelocityAllowed * Math.random());
         return velocity;
     }
 
@@ -105,18 +106,27 @@ public class NoteEngine {
         return randomIndex;
     }
 
+    public void setNotesAtAtime(int notesAtAtime) {
+        _notesAtATime = notesAtAtime;
+    }
+
+    private int getNotesAtATime() {
+        return _notesAtATime;
+    }
+
 
     /**
      * get a note, send note on message, delay and note off message
      */
     public void playNote() {
-        int noteNumber = getNoteNumber();
-        int channel = getChannel();
-        int velocity = getVelocity();
+        for (int i = 0; i < getNotesAtATime(); i++) {
+            int noteNumber = getNoteNumber();
+            int channel = getChannel();
+            int velocity = getVelocity();
 
-        midiBus.sendNoteOn(channel, noteNumber, velocity); // Send a Midi noteOn
-        updateOnNotes(noteNumber);
-        System.out.print("on notes: " + getOnNotes() + "\n");
+            midiBus.sendNoteOn(channel, noteNumber, velocity); // Send a Midi noteOn
+            updateOnNotes(noteNumber);
+        }
     }
 
     public void stopNote() {

@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 public class LightEngine extends AttentionEngine {
 
-    OscP5 oscP5;
+    OscP5 _oscP5;
     NetAddress remoteAddress;
     Timer timer;
 
@@ -24,10 +24,10 @@ public class LightEngine extends AttentionEngine {
     final long FADE_OUT_RATE = 500L;
     final float FADE_OUT_AMOUNT = 0.05f;
 
-    public LightEngine(MuseModel[] models) {
+    public LightEngine(MuseModel[] models, OscP5 oscP5) {
         super(models);
         _models = models;
-        oscP5 = new OscP5(this, PORT);
+        _oscP5 = oscP5;
         remoteAddress = new NetAddress(HOST, PORT);
     }
 
@@ -86,13 +86,9 @@ public class LightEngine extends AttentionEngine {
     private void send(int status, float value) {
         String addressPatter = getAddressPattern();
         OscMessage msg = new OscMessage(addressPatter);
-        msg.add(status);
+//        msg.add(status);
         msg.add(value);
 
-        try {
-            oscP5.send(msg, remoteAddress);
-        } catch (Error e) {
-            // e
-        }
+        _oscP5.send(msg, remoteAddress);
     }
 }

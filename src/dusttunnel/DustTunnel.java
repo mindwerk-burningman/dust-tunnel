@@ -17,8 +17,8 @@ public class DustTunnel extends PApplet {
     final String GAMMA_ADDRESS_PATTERN = "/muse/elements/gamma_absolute";
     final String THETA_ADDRESS_PATTERN = "/muse/elements/theta_absolute";
     final String IS_GOOD = "/muse/elements/is_good";
-    final String LIGHT_ENGINE_1_ADDRESS_PATTERN = "/sean/alhpa";
-    final String LIGHT_ENGINE_2_ADDRESS_PATTERN = "/sean/beta";
+    final String LIGHT_ENGINE_1_ADDRESS_PATTERN = "/sean/alhpaavg";
+    final String LIGHT_ENGINE_2_ADDRESS_PATTERN = "/sean/betaavg";
 
     // muse model
     MuseModel alpha;
@@ -96,10 +96,11 @@ public class DustTunnel extends PApplet {
 
     private void initNoteEngines() {
         NoteEngine bass = new NoteEngine(1, midiBus);
-        bass.setOctaveOffset(2);
+        bass.setOctaveOffset(1);
 
         NoteEngine pads = new NoteEngine(2, midiBus);
-        pads.setOctaveOffset(4);
+        pads.setOctaveOffset(3);
+        pads.setNotesAtAtime(3);
 
         NoteEngine sparkles = new NoteEngine(3, midiBus);
         sparkles.setOctaveOffset(6);
@@ -123,9 +124,9 @@ public class DustTunnel extends PApplet {
     private void initLightEngine() {
         MuseModel[] all = {alpha, beta, gamma};
         MuseModel[] some = {alpha, beta};
-        lightEngine1 = new LightEngine(all);
+        lightEngine1 = new LightEngine(all, oscP5);
         lightEngine1.setAddressPattern(LIGHT_ENGINE_1_ADDRESS_PATTERN);
-        lightEngine2 = new LightEngine(some);
+        lightEngine2 = new LightEngine(some, oscP5);
         lightEngine2.setAddressPattern(LIGHT_ENGINE_2_ADDRESS_PATTERN);
         lightEngines[0] = lightEngine1;
         lightEngines[1] = lightEngine2;
@@ -178,7 +179,7 @@ public class DustTunnel extends PApplet {
         attentionEngine.update();
 
         for (LightEngine lightEngine : lightEngines) {
-            lightEngine.update();
+//            lightEngine.update();
         }
 
         redraw();

@@ -17,6 +17,7 @@
 
 ## Music ##
 
+* limit note engine to certain bands
 <!-- * multiple tracks/instruments with controls -->
 <!-- * random midi notes separate tracks -->
 * create three tracks
@@ -47,14 +48,11 @@
 * smoothing algo inbetween values/CC messages
   - big jumps should send out multiple messages (over time?)
   <!-- - update ranges -->
-* attention triggers
-  - raises limit on note ons for sparkles
-  - raises high pass and modulation on bass
 <!-- * random note selection from arrays of dorian scales -->
 <!-- * random duration/velocity -->
-* chord arrays
-* scale arrays
-* stopped signal (change person or takes off)
+<!-- * chord arrays -->
+<!-- * scale arrays -->
+<!-- * stopped signal (change person or takes off) -->
   <!-- - fade back to default state -->
   <!-- - change root note and scale -->
 
@@ -66,6 +64,9 @@
 * sparkles
   - cc 3 = delay time L / high => low
   - cc 4 = delay time R / high => low
+* pad
+  - cc 5 = lfo rate 0 - 127 and back
+  - cc 6 = high pass 0 - 100
 
 ## default states
 * bass
@@ -78,6 +79,8 @@
   - velocity = 0
   - cc 1 = dry for stereo verb
   - cc 2 = reverb time
+* pad
+  - cc 7 = glide time 0 - 64
 
 ## MindWave ##
 
@@ -88,11 +91,21 @@
 `/sean/alphaavg 0.285145`
 `/sean/betaavg 0.285145`
 
+```sh
+ssh pi@10.0.1.5 # password is pi
+cat /etc/rc.local # startup script
+
+~/pi/run/srv3.py.mindwerk # the one I want
+
+# copy script to run on startup
+cp srv3.py.mindwerk srv3.py
+```
+
 ## Commands ##
 
 `muse-io --device Muse-98A9`
 
-sending from device to 
+sending from device to DustTunnel
 `muse-io --device Muse-98A9 --osc osc.udp://localhost:9000`
 
 reading file over TCP
@@ -101,5 +114,5 @@ reading file over TCP
 read file to mindwave
 `muse-player -f muselab_recording.muse -s osc.udp://10.0.1.5:9000`
 
-read file to mindwave
+read file to local Max
 `muse-player -f muselab_recording.muse -s osc.udp://127.0.0.1:9000`
