@@ -2,13 +2,27 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" line="77" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="165" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" line="70" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a6c5f0-0977-4df4-8f2c-46dd282dd4e1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/dusttunnel/LightEngine.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/3FD47758-D669-4F56-8F3C-C96CD9AF01F0.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/52D9111E-FD73-4A93-8CAE-8242A0CA9D00.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/541DA5A8-FF89-4D0E-8501-5404F7954A4C.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/5C31AF4D-875F-4197-8554-AD1EEFCC3FA7.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/62CC59EF-8F19-4544-8048-A4655B3CF106.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/6C7B4DC1-056B-44E7-853E-535A6F0215C3.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/86DBC07D-61B1-418D-A9D7-D4210B73C9A2.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/B4D9EF79-EB74-443B-88D1-63C3CECBB387.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/D83C3A79-C5AE-478D-9527-AD5E95D4506F.undo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Undo Data.nosync/FC4E7EA1-597A-42B2-9B79-442D918019AB.undo" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/DisplayState.plist" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/DisplayState.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/DisplayStateArchive" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/DisplayStateArchive" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/MetaData.plist" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/MetaData.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/00/MetaData.plist" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/00/MetaData.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/00/ProjectData" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/00/ProjectData" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/01/MetaData.plist" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/01/MetaData.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/01/ProjectData" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/Project File Backups/01/ProjectData" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/ProjectData" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/ProjectData" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/WindowImage.jpg" afterPath="$PROJECT_DIR$/sound-engine/sound-engine.logicx/Alternatives/000/WindowImage.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -40,15 +54,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DustTunnel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DustTunnel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="181" column="5" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+            <state relative-caret-position="476">
+              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2038#2039#0" expanded="true" />
-                <element signature="e#2102#2103#0" expanded="true" />
+                <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
+                <element signature="e#2187#2188#0" expanded="true" />
+                <element signature="e#2251#2252#0" expanded="true" />
+                <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,8 +81,8 @@
       <file leaf-file-name="MuseModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="130" column="13" selection-start-line="128" selection-start-column="12" selection-end-line="130" selection-end-column="13" />
+            <state relative-caret-position="390">
+              <caret line="46" column="5" selection-start-line="44" selection-start-column="4" selection-end-line="46" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,15 +90,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttentionEngine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java">
+      <file leaf-file-name="LightEngine.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dusttunnel/LightEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-166">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="213">
+              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
-                <element signature="method#updateMin#0;class#AttentionEngine#0" expanded="false" />
+                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#1041#1042#0" expanded="true" />
+                <element signature="e#1406#1407#0" expanded="true" />
+                <element signature="e#1438#1439#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1499#1500#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1564#1565#0" expanded="true" />
+                <element signature="e#1599#1600#0" expanded="true" />
+                <element signature="e#1637#1638#0" expanded="true" />
+                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1745#1746#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,23 +117,12 @@
       <file leaf-file-name="ControllerEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="393">
+              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+              <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1997#1998#0" expanded="true" />
-                <element signature="e#2038#2039#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NoteEngine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dusttunnel/NoteEngine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -138,8 +161,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/dusttunnel/NoteEngine.java" />
         <option value="$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java" />
-        <option value="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" />
         <option value="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/LightEngine.java" />
       </list>
     </option>
   </component>
@@ -452,6 +476,66 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="dust-tunnel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="osctest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dusttunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -952,8 +1036,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#2187#2188#0" expanded="true" />
+            <element signature="e#2251#2252#0" expanded="true" />
+            <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -986,8 +1080,6 @@
           <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-            <element signature="e#2038#2039#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,7 +1088,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#NoteEngine#0;class#NoteEngine#0" expanded="false" />
+            <element signature="method#update#0;class#NoteEngine#0" expanded="false" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,16 +1163,6 @@
         <state relative-caret-position="195">
           <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/osctest/osctest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="27" column="61" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,28 +1254,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/NoteEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="-432">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#NoteEngine#0;class#NoteEngine#0" expanded="false" />
+            <element signature="method#update#0;class#NoteEngine#0" expanded="false" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/osctest/osctest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-            <element signature="e#2038#2039#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="480">
+          <caret line="103" column="32" selection-start-line="103" selection-start-column="32" selection-end-line="103" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
@@ -1198,8 +1288,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="130" column="13" selection-start-line="128" selection-start-column="12" selection-end-line="130" selection-end-column="13" />
+        <state relative-caret-position="390">
+          <caret line="46" column="5" selection-start-line="44" selection-start-column="4" selection-end-line="46" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1208,12 +1298,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="181" column="5" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+        <state relative-caret-position="476">
+          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2102#2103#0" expanded="true" />
+            <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#2187#2188#0" expanded="true" />
+            <element signature="e#2251#2252#0" expanded="true" />
+            <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <caret line="75" column="23" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/LightEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1406#1407#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1499#1500#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1564#1565#0" expanded="true" />
+            <element signature="e#1599#1600#0" expanded="true" />
+            <element signature="e#1637#1638#0" expanded="true" />
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1745#1746#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -6,6 +6,7 @@ import processing.core.PApplet;
 import themidibus.MidiBus;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -37,15 +38,18 @@ public class DustTunnel extends PApplet {
     MidiBus midiBus;
 //    String MIDI_BUS_CHANNEL = "MIDI Monitor (Untitled)";
     String MIDI_BUS_CHANNEL = "DustTunnel";
-    int NUM_NOTE_ENGINES = 4;
     int NUM_CONTROLLER_ENGINES = 4;
     int CONTROLLER_NUMBER_OFFSET = 0;
+    int NUM_NOTE_ENGINES = 3;
 
     NoteEngine[] noteEngines = new NoteEngine[NUM_NOTE_ENGINES];
     ControllerEngine[] controllerEngines = new ControllerEngine[NUM_CONTROLLER_ENGINES];
     AttentionEngine attentionEngine;
+    LightEngine lightEngineAll;
+    LightEngine lightEngineSome;
+    LightEngine[] lightEngines;
 
-    boolean shouldRecieveMessages = false; // control flow switch
+    boolean shouldReceiveMessages = false; // control flow switch
 
     public void setup() {
         noLoop();
@@ -62,9 +66,10 @@ public class DustTunnel extends PApplet {
         initNoteEngines();
         initControllerEngines();
         initAttentionEngine();
+        initLightEngine();
 
         // avoid getting osc messages before initialized
-        shouldRecieveMessages = true;
+        shouldReceiveMessages = true;
 
         TimerTask checkStatus = new TimerTask() {
             public void run() {
@@ -88,9 +93,14 @@ public class DustTunnel extends PApplet {
     }
 
     private void initNoteEngines() {
-        for (int i = 0; i < noteEngines.length; i++) {
-            noteEngines[i] = new NoteEngine(i + 1, midiBus);
-        }
+        NoteEngine bassDrones = new NoteEngine(1, midiBus);
+        bassDrones.setOctaveOffset(2);
+
+        NoteEngine pads = new NoteEngine(2, midiBus);
+        pads.setOctaveOffset(4);
+
+        NoteEngine sparkles = new NoteEngine(3, midiBus);
+        sparkles.setOctaveOffset(6);
     }
 
     private void initControllerEngines() {
@@ -102,6 +112,15 @@ public class DustTunnel extends PApplet {
     private void initAttentionEngine() {
         MuseModel[] models = {alpha, gamma};
         attentionEngine = new AttentionEngine(models);
+    }
+
+    private void initLightEngine() {
+        MuseModel[] all = {alpha, beta, gamma};
+        MuseModel[] some = {alpha, beta};
+        lightEngineAll = new LightEngine(all);
+        lightEngineSome = new LightEngine(some);
+        lightEngines[0] = lightEngineAll;
+        lightEngines[1] = lightEngineSome;
     }
 
     public void settings() {
@@ -147,19 +166,35 @@ public class DustTunnel extends PApplet {
         for (NoteEngine noteEngine : noteEngines) {
             noteEngine.update();
         }
+
         attentionEngine.update();
+
+        for (LightEngine lightEngine : lightEngines) {
+            lightEngine.update();
+        }
+
         redraw();
     }
 
     private void resetSystems() {
-        // hasn't been reset yet
+        // new root
+        Random random = new Random();
+        int rootOffset = random.nextInt(11) + 1;
         for (NoteEngine noteEngine : noteEngines) {
             noteEngine.reset();
+            noteEngine.setRootOffset(rootOffset);
         }
 
         for (ControllerEngine controllerEngine : controllerEngines) {
             controllerEngine.reset();
         }
+
+        for (LightEngine lightEngine : lightEngines) {
+            lightEngine.reset();
+        }
+
+        // attention will go down with other CCs
+
     }
 
     private void checkHeadsetStatus(OscMessage msg) {
@@ -174,7 +209,7 @@ public class DustTunnel extends PApplet {
 
         // check to see if at least one connection
         if (isConnected) {
-            shouldRecieveMessages = true;
+            shouldReceiveMessages = true;
         } else {
             resetSystems();
         }
@@ -187,7 +222,7 @@ public class DustTunnel extends PApplet {
      * @param msg from muse
      */
     public void oscEvent(OscMessage msg) {
-        if (shouldRecieveMessages) {
+        if (shouldReceiveMessages) {
             update(msg);
         }
 

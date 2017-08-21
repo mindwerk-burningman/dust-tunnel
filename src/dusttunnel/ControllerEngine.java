@@ -60,7 +60,7 @@ public class ControllerEngine {
         setLast(smoothed);
     }
 
-    private void decLast() {
+    private void fadeOut() {
         int newLast = getLast() - 1;
         ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), newLast);
         midiBus.sendControllerChange(controlChange);
@@ -73,7 +73,7 @@ public class ControllerEngine {
     public void reset() {
         TimerTask resetTask = new TimerTask() {
             public void run() {
-                decLast();
+                fadeOut();
             }
         };
 

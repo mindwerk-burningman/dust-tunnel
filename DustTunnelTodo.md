@@ -20,16 +20,16 @@
 <!-- * multiple tracks/instruments with controls -->
 <!-- * random midi notes separate tracks -->
 * create three tracks
-  - low droney sounds
+  <!-- - low droney sounds
     + drops octaves
-    + really long release
+    + really long release -->
   - pad swells
     + mid range
     + uses chords?
-  - sparkles
-    + raises octaves
-    + short ASDR
-    + lots of reverb
+  <!-- - sparkles -->
+    <!-- + raises octaves -->
+    <!-- + short ASDR -->
+    <!-- + lots of reverb -->
 * CC messages
   - reverb / delay amounts
   - allowing slow LFO modulation
@@ -37,7 +37,8 @@
   - low cut + high cut
   - determine best default states
     + what should happen when values raise
-<!-- * create melodies -->
+* hard limiter/compressor on master
+
 
 ## DustTunnel ##
 
@@ -55,7 +56,37 @@
 * scale arrays
 * stopped signal (change person or takes off)
   <!-- - fade back to default state -->
-  - change root note and scale
+  <!-- - change root note and scale -->
+
+## trigger actions ##
+* bass
+  - cc 9 => 100 until attention drops below threshold
+  - cc 8 => 10 => 64
+  - velocity = 60 - 100
+* sparkles
+  - cc 3 = delay time L / high => low
+  - cc 4 = delay time R / high => low
+
+## default states
+* bass
+  - channel 1
+  - cc 9 freq = 0 - 25
+  - velocity 0 - 40
+  - much shorter duration
+* sparkles
+  - channel 2
+  - velocity = 0
+  - cc 1 = dry for stereo verb
+  - cc 2 = reverb time
+
+## MindWave ##
+
+`/sean/alpha 0.285145`
+`/sean/beta 0.285145`
+`/sean/gamma 0.285145`
+&&
+`/sean/alphaavg 0.285145`
+`/sean/betaavg 0.285145`
 
 ## Commands ##
 
@@ -66,3 +97,9 @@ sending from device to
 
 reading file over TCP
 `muse-player -f muselab_recording.muse -s osc.tcp://127.0.0.1:9000`
+
+read file to mindwave
+`muse-player -f muselab_recording.muse -s osc.udp://10.0.1.5:9000`
+
+read file to mindwave
+`muse-player -f muselab_recording.muse -s osc.udp://127.0.0.1:9000`

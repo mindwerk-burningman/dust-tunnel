@@ -9,13 +9,14 @@ public class NoteEngine {
     MidiBus midiBus; // shared throughout program
 
     private int _channel;
-    private int[] _scale = {49, 51, 52, 54, 56, 57, 59}; // default dorian
+
+    private int[] _scale = {0, 4, 7, 11, 14, 18, 21}; // maj9#11 13
+    private int _rootOffset = 0;
+    private int _octaveOffset = 0;
     private int MAX_VELOCITY_ALLOWED = 80;
     private float NOTE_ON_PROBABILITY = 0.008f;
     private float NOTE_OFF_PROBABILITY = 0.05f;
-    private float CHANGE_OCTAVE_PROBABILITY = 0.02f;
-    private float DROP_OCTAVE_PROBABILITY = 0.02f;
-    private int OCTAVE_SPAN = 3;
+    private float ODD_NOTE_PROBABILITY = 0.05f;
 
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
@@ -52,21 +53,30 @@ public class NoteEngine {
         return _scale;
     }
 
+    public void setRootOffset(int offset) {
+        _rootOffset = offset;
+    }
+
+    private int getOctaveOffset() {
+        return _octaveOffset;
+    }
+
+    private int getRootOffset() {
+        return _rootOffset;
+    }
+
+    public void setOctaveOffset(int offset) {
+        _octaveOffset = offset;
+    }
+
     private int getNoteNumber() {
         int[] scale = getScale();
         int pitch = scale[random.nextInt(scale.length)];
-
-        // change octave?
-        if (Math.random() < CHANGE_OCTAVE_PROBABILITY) {
-            int octaveMultiplier = random.nextInt(OCTAVE_SPAN);
-
-            // drop octave
-            if (Math.random() < DROP_OCTAVE_PROBABILITY) {
-                octaveMultiplier = octaveMultiplier * -1;
-            }
-            pitch = pitch + (octaveMultiplier * 12);
+        int note = pitch + getRootOffset() + (12 * getOctaveOffset());
+        if (Math.random() > ODD_NOTE_PROBABILITY) {
+            note += 1;
         }
-        return pitch;
+        return note;
     }
 
     /**

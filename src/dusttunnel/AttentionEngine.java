@@ -23,7 +23,7 @@ public class AttentionEngine {
         _models[0] = model;
     }
 
-    private MuseModel[] getModels() {
+    protected MuseModel[] getModels() {
         return _models;
     }
 
@@ -31,7 +31,7 @@ public class AttentionEngine {
         return _last;
     }
 
-    private void setLast(float curr) {
+    protected void setLast(float curr) {
         _last = curr;
     }
 
@@ -39,11 +39,11 @@ public class AttentionEngine {
         return _max;
     }
 
-    private void setMax(float value) {
+    protected void setMax(float value) {
         _max = value;
     }
 
-    private void updateMax(float value) {
+    protected void updateMax(float value) {
         if (value > getMax()) {
             setMax(value);
         }
@@ -53,17 +53,17 @@ public class AttentionEngine {
         return _min;
     }
 
-    private void setMin(float value) {
+    protected void setMin(float value) {
         _min = value;
     }
 
-    private void updateMin(float value) {
+    protected void updateMin(float value) {
         if (value < getMin()) {
             setMin(value);
         }
     }
 
-    private float getValueK() {
+    protected float getValueK() {
         return _valueK;
     }
 
@@ -82,7 +82,7 @@ public class AttentionEngine {
         setLast(value);
     }
 
-    private void updateRange(float value) {
+    protected void updateRange(float value) {
         updateMax(value);
         updateMin(value);
     }
