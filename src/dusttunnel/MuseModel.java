@@ -12,7 +12,7 @@ public class MuseModel {
     private String _addressPattern;
 
     // max avg received so far
-    protected float _max = 1;
+    protected float _max = 0;
 
     // min avg received so far
     protected float _min = 0;
@@ -21,9 +21,12 @@ public class MuseModel {
     protected float _last;
 
     // for modifying noisy waves down
-    protected float _valueK = 1;
+    protected float K = 1;
 
     protected float MAX_VALUE_DIFF_ALLOWED = 0.2f;
+
+    final float INC_DEC_AMOUNT = 0.0001f;
+    final float DIFF_LIMITER = 0.15f;
 
     /**
      * set the signal pattern for this object
@@ -35,11 +38,11 @@ public class MuseModel {
 
     public MuseModel(String addressPattern, float valueK) {
         _addressPattern = addressPattern;
-        _valueK= valueK;
+        K = valueK;
     }
 
     protected float getValueK() {
-        return _valueK;
+        return K;
     }
 
     public String getAddressPattern() {
@@ -96,26 +99,54 @@ public class MuseModel {
     }
 
     /**
+     * closer it gets to max, the smaller the increment amounts
+     * and vice versa
+     */
+    private float getMaxLimiter(float value) {
+        float max = getMax();
+        float diff = max - value;
+        return diff * DIFF_LIMITER;
+    }
+
+    private float getMinLimiter(float value) {
+        float min = getMin();
+        float diff = value - min;
+        return diff * DIFF_LIMITER;
+    }
+
+    private float getNextValue(float value) {
+        float last = getLast();
+        float maxLimiter = getMaxLimiter(value);
+        float minLimiter = getMinLimiter(value);
+        if (value > last) {
+            value += INC_DEC_AMOUNT * maxLimiter;
+        } else {
+            value -= INC_DEC_AMOUNT * minLimiter;
+        }
+
+        if (value >= 1) {
+            value = 1;
+        }
+
+        if (value <= 0) {
+            value = 0;
+        }
+
+        return value;
+    }
+
+    /**
      * get the value for the band after sanitation / smoothing
      * @param msg from osc event
      * @return float
      */
     public float getValue(OscMessage msg) {
         float[] values = getValues(msg);
-        float averaged = getCleanAverage(values);
+        float averaged = getCleanAverage(values) * getValueK();
         updateRange(averaged);
-        float value = calculateValueInRange(averaged);
-        update(value);
+        float value = getNextValue(averaged);
+        updateLast(value);
         return value;
-    }
-
-    // (v - min) / r
-    protected float calculateValueInRange(float value) {
-        float max = getMax();
-        float min = getMin();
-        float range = max - min;
-        float valueInRange = (value - min) / range;
-        return valueInRange;//  * getValueK();
     }
 
     /**

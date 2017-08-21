@@ -17,36 +17,32 @@
 
 ## Music ##
 
-* limit note engine to certain bands
 <!-- * multiple tracks/instruments with controls -->
 <!-- * random midi notes separate tracks -->
-* create three tracks
+<!-- * create three tracks -->
   <!-- - low droney sounds
     + drops octaves
     + really long release -->
-  - pad swells
-    + mid range
-    + uses chords?
+  <!-- - pad swells -->
+    <!-- + mid range -->
+    <!-- + uses chords? -->
   <!-- - sparkles -->
     <!-- + raises octaves -->
     <!-- + short ASDR -->
     <!-- + lots of reverb -->
-* CC messages
-  - reverb / delay amounts
-  - allowing slow LFO modulation
-  - high cut
-  - low cut + high cut
-  - determine best default states
-    + what should happen when values raise
-* hard limiter/compressor on master
+<!-- * hard limiter/compressor on master -->
 
 
 ## DustTunnel ##
 
-<!-- * `NoteFactory` -->
-<!-- * `ControlChangeFactory` -->
+* inc/dec methods of changing model values instead of within range
+  - figure out amount of which to do so
+* limit note engine to certain bands
+* more setters for note engine
 * smoothing algo inbetween values/CC messages
   - big jumps should send out multiple messages (over time?)
+<!-- * `NoteFactory` -->
+<!-- * `ControlChangeFactory` -->
   <!-- - update ranges -->
 <!-- * random note selection from arrays of dorian scales -->
 <!-- * random duration/velocity -->

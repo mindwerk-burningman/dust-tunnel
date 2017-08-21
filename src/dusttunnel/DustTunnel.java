@@ -27,6 +27,11 @@ public class DustTunnel extends PApplet {
     MuseModel theta;
     MuseModel[] models = new MuseModel[4];
 
+    final float ALPHA_K = 0.75f;
+    final float BETA_K = 1.0f;
+    final float GAMMA_K = 1.0f;
+    final float THETA_K = 0.75f;
+
     Timer timer = new Timer();
     private boolean shouldCheckHeadbandStatus = false;
     final long STATUS_CHECK_RATE = 1000L;
@@ -84,10 +89,10 @@ public class DustTunnel extends PApplet {
 
     private void initModels() {
         // muse model
-        alpha = new MuseModel(ALPHA_ADDRESS_PATTERN, 0.75f);
-        beta = new MuseModel(BETA_ADDRESS_PATTERN);
-        gamma = new MuseModel(GAMMA_ADDRESS_PATTERN);
-        theta = new MuseModel(THETA_ADDRESS_PATTERN, 0.5f);
+        alpha = new MuseModel(ALPHA_ADDRESS_PATTERN, ALPHA_K);
+        beta = new MuseModel(BETA_ADDRESS_PATTERN, BETA_K);
+        gamma = new MuseModel(GAMMA_ADDRESS_PATTERN, GAMMA_K);
+        theta = new MuseModel(THETA_ADDRESS_PATTERN, THETA_K);
         models[0] = alpha;
         models[1] = beta;
         models[2] = gamma;
@@ -238,7 +243,7 @@ public class DustTunnel extends PApplet {
         if (shouldCheckHeadbandStatus && msg.checkAddrPattern(IS_GOOD)) {
             checkHeadsetStatus(msg);
             shouldCheckHeadbandStatus = false; // check once at interval
-            println("checkin status");
+//            println("checkin status");
         }
     }
 
