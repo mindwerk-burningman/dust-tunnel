@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class NoteEngine {
     MidiBus midiBus; // shared throughout program
-
+    MuseModel _model;
     private int _channel;
 
     private int[] _scale = {0, 4, 7, 11, 14, 18, 21}; // maj9#11 13
@@ -22,21 +22,24 @@ public class NoteEngine {
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
 
-    public NoteEngine(int channel, MidiBus midiBus) {
+    public NoteEngine(int channel, MidiBus midiBus, MuseModel model) {
         _channel = channel;
         this.midiBus = midiBus;
+        _model = model;
     }
 
     /**
      * randomly play notes
      */
-    public void update() {
-        if (Math.random() < _noteOnProbability) {
-            playNote();
-        }
+    public void update(MuseModel model) {
+        if (model.getAddressPattern() == getModel().getAddressPattern()) {
+            if (Math.random() < _noteOnProbability) {
+                playNote();
+            }
 
-        if (Math.random() < _noteOffProbability) {
-            stopNote();
+            if (Math.random() < _noteOffProbability) {
+                stopNote();
+            }
         }
     }
 
@@ -44,6 +47,10 @@ public class NoteEngine {
         for (int i = 0; i < getOnNotes().size(); i++) {
             stopNote();
         }
+    }
+
+    private MuseModel getModel() {
+        return _model;
     }
 
     private int getChannel() {

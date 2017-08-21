@@ -101,14 +101,14 @@ public class DustTunnel extends PApplet {
     }
 
     private void initNoteEngines() {
-        NoteEngine bass = new NoteEngine(1, midiBus);
+        NoteEngine bass = new NoteEngine(1, midiBus, gamma);
         bass.setOctaveOffset(1);
 
-        NoteEngine pads = new NoteEngine(2, midiBus);
+        NoteEngine pads = new NoteEngine(2, midiBus, beta);
         pads.setOctaveOffset(3);
         pads.setNotesAtAtime(3);
 
-        NoteEngine sparkles = new NoteEngine(3, midiBus);
+        NoteEngine sparkles = new NoteEngine(3, midiBus, alpha);
         sparkles.setOctaveOffset(6);
 
         noteEngines[0] = bass;
@@ -179,7 +179,7 @@ public class DustTunnel extends PApplet {
         controllerEngines[modelIndex].update(value);
 
         for (NoteEngine noteEngine : noteEngines) {
-            noteEngine.update();
+            noteEngine.update(model);
         }
 
         attentionEngine.update();
