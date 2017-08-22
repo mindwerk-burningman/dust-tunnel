@@ -12,6 +12,7 @@ public class AttentionEngine {
     private float _min = 0;
     private float _max = 1;
     private float K = 1.25f;
+    private float _userValue;
 
     public AttentionEngine(MuseModel[] models) {
         _models = models;
@@ -61,6 +62,14 @@ public class AttentionEngine {
         float value = getValue();
 
         setLast(value);
+    }
+
+    public void updateUserValue(float value) {
+        _userValue = value;
+    }
+
+    public float getUserValue() {
+        return _userValue;
     }
 
     protected void updateRange(float value) {

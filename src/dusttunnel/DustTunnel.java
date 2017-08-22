@@ -10,15 +10,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class DustTunnel extends PApplet {
-
+    final boolean IS_USING_HEADSET = true;
     // signal options
     final String ALPHA_ADDRESS_PATTERN = "/muse/elements/alpha_absolute";
     final String BETA_ADDRESS_PATTERN = "/muse/elements/beta_absolute";
     final String GAMMA_ADDRESS_PATTERN = "/muse/elements/gamma_absolute";
     final String THETA_ADDRESS_PATTERN = "/muse/elements/theta_absolute";
     final String IS_GOOD = "/muse/elements/is_good";
-    final String LIGHT_ENGINE_1_ADDRESS_PATTERN = "/sean/alhpaavg";
-    final String LIGHT_ENGINE_2_ADDRESS_PATTERN = "/sean/betaavg";
 
     // muse model
     MuseModel alpha;
@@ -29,12 +27,12 @@ public class DustTunnel extends PApplet {
 
     // lower values = less noise
     final float ALPHA_K = 0.75f;
-    final float BETA_K = 1.0f;
-    final float GAMMA_K = 1.0f;
-    final float THETA_K = 0.75f;
+    final float BETA_K = 0.75f;
+    final float GAMMA_K = 1.25f;
+    final float THETA_K = 0.55f;
 
     final float NOTE_ON_PROBABILITY = 0.008f;
-    final float NOTE_OFF_POBABILITY = 0.05f;
+    final float NOTE_OFF_PROBABILITY = 0.05f;
 
     Timer timer = new Timer();
     private boolean shouldCheckHeadbandStatus = false;
@@ -56,9 +54,7 @@ public class DustTunnel extends PApplet {
     NoteEngine[] noteEngines = new NoteEngine[NUM_NOTE_ENGINES];
     ControllerEngine[] controllerEngines = new ControllerEngine[NUM_CONTROLLER_ENGINES];
     AttentionEngine attentionEngine;
-    LightEngine lightEngine1;
-    LightEngine lightEngine2;
-    LightEngine[] lightEngines = new LightEngine[2];
+    LightEngine lightEngine;
 
     boolean shouldReceiveMessages = false; // control flow switch
 
@@ -68,8 +64,11 @@ public class DustTunnel extends PApplet {
     }
 
     private void init() {
-        oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
-//        oscP5 = new OscP5(this, PORT); // from headset
+        if (IS_USING_HEADSET) {
+            oscP5 = new OscP5(this, PORT); // from headset
+        } else {
+            oscP5 = new OscP5(this, PORT, OscP5.TCP); // from file readout
+        }
 
         MidiBus.list();
         midiBus = new MidiBus(this, -1, MIDI_BUS_CHANNEL);
@@ -108,18 +107,18 @@ public class DustTunnel extends PApplet {
         bass.setOctaveOffset(1);
         bass.setMaxVelocityAllowed(40);
         bass.setNoteOnProbability(NOTE_ON_PROBABILITY * 0.5f);
-        bass.setNoteOffProbability(NOTE_OFF_POBABILITY * 0.5f);
+        bass.setNoteOffProbability(NOTE_OFF_PROBABILITY * 0.5f);
 
         NoteEngine pads = new NoteEngine(1, midiBus, beta);
         pads.setOctaveOffset(3);
         pads.setNotesAtAtime(3);
         pads.setNoteOnProbability(NOTE_ON_PROBABILITY);
-        pads.setNoteOffProbability(NOTE_OFF_POBABILITY * 0.75f);
+        pads.setNoteOffProbability(NOTE_OFF_PROBABILITY * 0.75f);
 
         NoteEngine sparkles = new NoteEngine(2, midiBus, alpha);
         sparkles.setOctaveOffset(6);
         sparkles.setNoteOnProbability(NOTE_ON_PROBABILITY * 1.25f);
-        sparkles.setNoteOffProbability(NOTE_OFF_POBABILITY * 1.25f);
+        sparkles.setNoteOffProbability(NOTE_OFF_PROBABILITY * 1.25f);
 
         noteEngines[0] = bass;
         noteEngines[1] = pads;
@@ -138,14 +137,7 @@ public class DustTunnel extends PApplet {
     }
 
     private void initLightEngine() {
-        MuseModel[] all = {alpha, beta, gamma};
-        MuseModel[] some = {alpha, beta};
-        lightEngine1 = new LightEngine(all, oscP5);
-        lightEngine1.setAddressPattern(LIGHT_ENGINE_1_ADDRESS_PATTERN);
-        lightEngine2 = new LightEngine(some, oscP5);
-        lightEngine2.setAddressPattern(LIGHT_ENGINE_2_ADDRESS_PATTERN);
-        lightEngines[0] = lightEngine1;
-        lightEngines[1] = lightEngine2;
+        lightEngine = new LightEngine(oscP5);
     }
 
     public void settings() {
@@ -164,7 +156,7 @@ public class DustTunnel extends PApplet {
         float b = 0;
         for (int i = 0; i < models.length; i++) {
             float x = bandWidth * i;
-            float last = models[i].getLast();
+            float last = models[i].getUserValue();
             float y = height - (height * last);
             float percentHeight = y / height;
             float r = 255 - (255 * percentHeight);
@@ -175,7 +167,7 @@ public class DustTunnel extends PApplet {
 
         // draw attention
         float x = bandWidth * models.length + 1;
-        float last = attentionEngine.getLast();
+        float last = attentionEngine.getUserValue();
         float y = height - (height * last);
         float percentHeight = y / height;
         float r = 255 - (255 * percentHeight);
@@ -194,9 +186,7 @@ public class DustTunnel extends PApplet {
 
         attentionEngine.update();
 
-        for (LightEngine lightEngine : lightEngines) {
-//            lightEngine.update();
-        }
+        lightEngine.update(model);
 
         redraw();
     }
@@ -214,9 +204,10 @@ public class DustTunnel extends PApplet {
             controllerEngine.reset();
         }
 
-        for (LightEngine lightEngine : lightEngines) {
-            lightEngine.reset();
-        }
+//        for (LightEngine lightEngine : lightEngines) {
+//            lightEngine.reset();
+//        }
+        lightEngine.reset();
 
         // attention will go down with other CCs
 

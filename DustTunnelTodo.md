@@ -35,12 +35,14 @@
 
 ## DustTunnel ##
 
+* inc_dec for note engine probabilities
+  - implement based on model is increasing?
+* smoothing algo inbetween values/CC messages?
+  - may be solved with model updates
+* bug with losing connections and osc complaining...
 <!-- * inc/dec methods of changing model values instead of within range -->
   <!-- - figure out amount of which to do so -->
 <!-- * limit note engine to certain bands -->
-* inc_dec for note engine probabilities
-* smoothing algo inbetween values/CC messages
-  - big jumps should send out multiple messages (over time?)
 <!-- * `NoteFactory` -->
 <!-- * `ControlChangeFactory` -->
   <!-- - update ranges -->
@@ -97,6 +99,9 @@ cat /etc/rc.local # startup script
 
 # copy script to run on startup
 cp srv3.py.mindwerk srv3.py
+
+# manual run
+python3 /home/pi/run/srv3.py --leds 250 --ip 10.0.1.5 --port 9000
 ```
 
 ## Commands ##

@@ -7,13 +7,12 @@ import oscP5.OscP5;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class LightEngine extends AttentionEngine {
+public class LightEngine {
 
     OscP5 _oscP5;
     NetAddress remoteAddress;
     Timer timer;
 
-    final MuseModel[] _models;
     private float _valueK = 1;
     private int _status = 0;
 
@@ -24,19 +23,21 @@ public class LightEngine extends AttentionEngine {
     final long FADE_OUT_RATE = 500L;
     final float FADE_OUT_AMOUNT = 0.05f;
 
-    public LightEngine(MuseModel[] models, OscP5 oscP5) {
-        super(models);
-        _models = models;
+    public LightEngine(OscP5 oscP5) {
+//        super(models);
+//        _models = models;
         _oscP5 = oscP5;
         remoteAddress = new NetAddress(HOST, PORT);
     }
 
-    public void update() {
-        setStatus(1);
-        super.update();
-        int status = getStatus();
-        float value = getValue();
-        send(status, value);
+    public void update(MuseModel model) {
+        if (model.getAddressPattern() == "/muse/elements/alpha_absolute") {
+            send(model.getUserValue(), "/sean/alpha");
+        }
+
+        if (model.getAddressPattern() == "/muse/elements/gamma_absolute") {
+            send(model.getUserValue(), "/sean/beta");
+        }
     }
 
     public void reset() {
@@ -52,12 +53,12 @@ public class LightEngine extends AttentionEngine {
     }
 
     private void fadeOut() {
-        float value = getLast() - FADE_OUT_AMOUNT;
-        setLast(value);
-        if (value <= 0) {
-            timer.cancel();
-            send(0, 0.0f);
-        }
+//        float value = getLast() - FADE_OUT_AMOUNT;
+//        setLast(value);
+//        if (value <= 0) {
+//            timer.cancel();
+//            send(0, 0.0f);
+//        }
     }
 
     /**
@@ -83,12 +84,9 @@ public class LightEngine extends AttentionEngine {
         _addressPattern = addressPattern;
     }
 
-    private void send(int status, float value) {
-        String addressPatter = getAddressPattern();
-        OscMessage msg = new OscMessage(addressPatter);
-//        msg.add(status);
+    private void send(float value, String addressPattern) {
+        OscMessage msg = new OscMessage("/sean/alpha");
         msg.add(value);
-
         _oscP5.send(msg, remoteAddress);
     }
 }

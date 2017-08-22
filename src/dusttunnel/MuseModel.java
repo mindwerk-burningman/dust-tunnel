@@ -23,10 +23,12 @@ public class MuseModel {
     // most current calculated average
     protected float _curr;
 
+    protected float _userValue;
+
     // for modifying noisy waves down
     protected float K = 1.0f;
 
-    final float INC_DEC_AMOUNT = 0.0001f;
+    final float INC_DEC_AMOUNT = 0.00001f;
 
     // larger values = more limiting
     final float DIFF_LIMITER = 0.45f;
@@ -92,10 +94,6 @@ public class MuseModel {
         _curr = value;
     }
 
-    protected void updateLast(float value) {
-        setLast(value);
-    }
-
     public boolean isIncreasing() {
         return getCurr() > getLast();
     }
@@ -105,6 +103,7 @@ public class MuseModel {
         setCurr(value);
     }
 
+    // averaged values
     private void updateRange(float value) {
         updateMax(value);
         updateMin(value);
@@ -114,18 +113,21 @@ public class MuseModel {
      * closer it gets to max, the smaller the increment amounts
      * and vice versa
      */
+    // averaged value
     private float getMaxLimiter(float value) {
         float max = getMax();
         float diff = max - value;
         return diff * DIFF_LIMITER;
     }
 
+    // averaged value
     private float getMinLimiter(float value) {
         float min = getMin();
         float diff = value - min;
         return diff * DIFF_LIMITER;
     }
 
+    // averaged value into display/CC values between 0 & 1
     private float getNextValue(float value) {
         float last = getLast();
         float maxLimiter = getMaxLimiter(value);
@@ -147,6 +149,14 @@ public class MuseModel {
         return value;
     }
 
+    public void updateUserValue(float value) {
+        _userValue = value;
+    }
+
+    public float getUserValue() {
+        return _userValue;
+    }
+
     /**
      * get the value for the band after sanitation / smoothing
      * @param msg from osc event
@@ -156,8 +166,9 @@ public class MuseModel {
         float[] values = getValues(msg);
         float averaged = getCleanAverage(values) * K;
         updateRange(averaged);
+        update(averaged);
         float value = getNextValue(averaged);
-        updateLast(value);
+        updateUserValue(value);
         return value;
     }
 
