@@ -71,7 +71,7 @@ public class AttentionEngine {
     public float getValue() {
         float value = 0;
         for (MuseModel model : getModels()) {
-            value += model.getCurr(); // values in range
+            value += model.getCurr(); // values averaged
         }
         float averaged = value / getModels().length;
         updateRange(averaged);
