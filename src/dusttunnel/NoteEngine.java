@@ -15,9 +15,11 @@ public class NoteEngine {
     private int _octaveOffset = 0;
     private int _notesAtATime = 1;
     private int _maxVelocityAllowed = 127;
+    private int _minVelocityAllowed = 0;
     private float _noteOnProbability = 0.008f;
     private float _noteOffProbability = 0.05f;
     final float ODD_NOTE_PROBABILITY = 0.05f;
+    final float NOTE_INC_DEC = 0.002f;
 
     private ArrayList<Integer> _onNotes = new ArrayList<>();
     private Random random = new Random();
@@ -85,6 +87,46 @@ public class NoteEngine {
             note += 1;
         }
         return note;
+    }
+
+    public void setMaxVelocityAllowed(int maxVel) {
+        _maxVelocityAllowed = maxVel;
+    }
+
+    public int getMaxVelocityAllowed() {
+        return _maxVelocityAllowed;
+    }
+
+    public void setMinVelocityAllowed(int minVel) {
+        _minVelocityAllowed = minVel;
+    }
+
+    public int getMinVelocityAllowed() {
+        return _minVelocityAllowed;
+    }
+
+    public void incNoteOnProbability() {
+        _noteOnProbability += NOTE_INC_DEC;
+    }
+
+    public void decNoteOnProbability() {
+        _noteOnProbability -= NOTE_INC_DEC;
+    }
+
+    public void incNoteOffProbability() {
+        _noteOnProbability += NOTE_INC_DEC;
+    }
+
+    public void decNoteOffProbability() {
+        _noteOnProbability -= NOTE_INC_DEC;
+    }
+
+    private float getNoteOnProbability() {
+        return _noteOnProbability;
+    }
+
+    private float getNoteOffProbability() {
+        return _noteOffProbability;
     }
 
     /**

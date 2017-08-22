@@ -35,10 +35,10 @@
 
 ## DustTunnel ##
 
-* inc/dec methods of changing model values instead of within range
-  - figure out amount of which to do so
-* limit note engine to certain bands
-* more setters for note engine
+<!-- * inc/dec methods of changing model values instead of within range -->
+  <!-- - figure out amount of which to do so -->
+<!-- * limit note engine to certain bands -->
+* inc_dec for note engine probabilities
 * smoothing algo inbetween values/CC messages
   - big jumps should send out multiple messages (over time?)
 <!-- * `NoteFactory` -->
