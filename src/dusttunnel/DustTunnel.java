@@ -33,6 +33,9 @@ public class DustTunnel extends PApplet {
     final float GAMMA_K = 1.0f;
     final float THETA_K = 0.75f;
 
+    final float NOTE_ON_PROBABILITY = 0.008f;
+    final float NOTE_OFF_POBABILITY = 0.05f;
+
     Timer timer = new Timer();
     private boolean shouldCheckHeadbandStatus = false;
     final long STATUS_CHECK_RATE = 1000L;
@@ -43,8 +46,8 @@ public class DustTunnel extends PApplet {
 
     // midi
     MidiBus midiBus;
-//    String MIDI_BUS_CHANNEL = "MIDI Monitor (Untitled)";
-    String MIDI_BUS_CHANNEL = "DustTunnel";
+    String MIDI_BUS_CHANNEL = "MIDI Monitor (Untitled)";
+//    String MIDI_BUS_CHANNEL = "DustTunnel";
     int NUM_CONTROLLER_ENGINES = 4;
     int CONTROLLER_NUMBER_OFFSET = 0;
     int NUM_NOTE_ENGINES = 3;
@@ -101,15 +104,22 @@ public class DustTunnel extends PApplet {
     }
 
     private void initNoteEngines() {
-        NoteEngine bass = new NoteEngine(1, midiBus, gamma);
+        NoteEngine bass = new NoteEngine(0, midiBus, gamma);
         bass.setOctaveOffset(1);
+        bass.setMaxVelocityAllowed(40);
+        bass.setNoteOnProbability(NOTE_ON_PROBABILITY * 0.5f);
+        bass.setNoteOffProbability(NOTE_OFF_POBABILITY * 0.5f);
 
-        NoteEngine pads = new NoteEngine(2, midiBus, beta);
+        NoteEngine pads = new NoteEngine(1, midiBus, beta);
         pads.setOctaveOffset(3);
         pads.setNotesAtAtime(3);
+        pads.setNoteOnProbability(NOTE_ON_PROBABILITY);
+        pads.setNoteOffProbability(NOTE_OFF_POBABILITY * 0.75f);
 
-        NoteEngine sparkles = new NoteEngine(3, midiBus, alpha);
+        NoteEngine sparkles = new NoteEngine(2, midiBus, alpha);
         sparkles.setOctaveOffset(6);
+        sparkles.setNoteOnProbability(NOTE_ON_PROBABILITY * 1.25f);
+        sparkles.setNoteOffProbability(NOTE_OFF_POBABILITY * 1.25f);
 
         noteEngines[0] = bass;
         noteEngines[1] = pads;

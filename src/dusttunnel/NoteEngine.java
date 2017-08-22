@@ -35,11 +35,11 @@ public class NoteEngine {
      */
     public void update(MuseModel model) {
         if (model.getAddressPattern() == getModel().getAddressPattern()) {
-            if (Math.random() < _noteOnProbability) {
+            if (random.nextFloat() < _noteOnProbability) {
                 playNote();
             }
 
-            if (Math.random() < _noteOffProbability) {
+            if (random.nextFloat() < _noteOffProbability) {
                 stopNote();
             }
         }
@@ -101,6 +101,14 @@ public class NoteEngine {
         _minVelocityAllowed = minVel;
     }
 
+    public void setNoteOnProbability(float probability) {
+        _noteOnProbability = probability;
+    }
+
+    public void setNoteOffProbability(float probability) {
+        _noteOffProbability = probability;
+    }
+
     public int getMinVelocityAllowed() {
         return _minVelocityAllowed;
     }
@@ -134,7 +142,7 @@ public class NoteEngine {
      * @return velocity
      */
     private int getVelocity() {
-        int velocity = (int) Math.floor(_maxVelocityAllowed * Math.random());
+        int velocity = _minVelocityAllowed + random.nextInt(_maxVelocityAllowed - _minVelocityAllowed + 1);
         return velocity;
     }
 

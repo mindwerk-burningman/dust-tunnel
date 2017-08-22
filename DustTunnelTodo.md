@@ -76,6 +76,8 @@
   - cc 1 = dry for stereo verb
   - cc 2 = reverb time
 * pad
+  - channel 3
+  - min/max vel???
   - cc 7 = glide time 0 - 64
 
 ## MindWave ##
