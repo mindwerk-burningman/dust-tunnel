@@ -7,20 +7,14 @@ import java.util.TimerTask;
 
 public class AttentionEngine {
     private MuseModel[] _models;
-    private boolean _isAttentionGrowing = false;
     private float _last;
     private float _curr;
     private float _min = 0;
     private float _max = 1;
-    private float _valueK = 1;
+    private float K = 1.25f;
 
     public AttentionEngine(MuseModel[] models) {
         _models = models;
-    }
-
-    public AttentionEngine(MuseModel model) {
-        _models = new MuseModel[1];
-        _models[0] = model;
     }
 
     protected MuseModel[] getModels() {
@@ -63,22 +57,9 @@ public class AttentionEngine {
         }
     }
 
-    protected float getValueK() {
-        return _valueK;
-    }
-
-    public boolean isAttentionGrowing() {
-        return _isAttentionGrowing;
-    }
-
     public void update() {
         float value = getValue();
 
-        if (value > getLast()) {
-            _isAttentionGrowing = true;
-        } else {
-            _isAttentionGrowing = false;
-        }
         setLast(value);
     }
 
@@ -90,7 +71,7 @@ public class AttentionEngine {
     public float getValue() {
         float value = 0;
         for (MuseModel model : getModels()) {
-            value += model.getLast(); // values in range
+            value += model.getCurr(); // values in range
         }
         float averaged = value / getModels().length;
         updateRange(averaged);

@@ -20,6 +20,9 @@ public class MuseModel {
     // last received value in range
     protected float _last;
 
+    // most current calculated average
+    protected float _curr;
+
     // for modifying noisy waves down
     protected float K = 1.0f;
 
@@ -81,12 +84,25 @@ public class MuseModel {
         _last = value;
     }
 
+    protected float getCurr() {
+        return _curr;
+    }
+
+    protected void setCurr(float value) {
+        _curr = value;
+    }
+
     protected void updateLast(float value) {
         setLast(value);
     }
 
+    public boolean isIncreasing() {
+        return getCurr() > getLast();
+    }
+
     private void update(float value) {
-        updateLast(value);
+        setLast(getCurr());
+        setCurr(value);
     }
 
     private void updateRange(float value) {
