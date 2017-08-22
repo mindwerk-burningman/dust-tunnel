@@ -13,6 +13,9 @@ public class AttentionEngine {
     private float _max = 1;
     private float K = 1.25f;
     private float _userValue;
+    final float INC_DEC_AMOUNT = 0.00001f;
+    // larger values = more limiting
+    final float DIFF_LIMITER = 0.45f;
 
     public AttentionEngine(MuseModel[] models) {
         _models = models;
@@ -26,8 +29,16 @@ public class AttentionEngine {
         return _last;
     }
 
-    protected void setLast(float curr) {
-        _last = curr;
+    protected void setLast(float value) {
+        _last = value;
+    }
+
+    protected void setCurr(float value) {
+        _curr = value;
+    }
+
+    protected float getCurr() {
+        return _curr;
     }
 
     public float getMax() {
@@ -59,9 +70,56 @@ public class AttentionEngine {
     }
 
     public void update() {
-        float value = getValue();
+        float value = 0;
+        for (MuseModel model : getModels()) {
+            value += model.getUserValue();
+        }
+        float mean = value / getModels().length;
+        updateRange(mean);
+        setLast(getCurr());
+        setCurr(mean);
+        float userValue = getNextValue(mean);
+        updateUserValue(userValue);
+    }
 
-        setLast(value);
+    /**
+     * closer it gets to max, the smaller the increment amounts
+     * and vice versa
+     */
+    // averaged value
+    private float getMaxLimiter(float value) {
+        float max = getMax();
+        float diff = max - value;
+        return diff * DIFF_LIMITER;
+    }
+
+    // averaged value
+    private float getMinLimiter(float value) {
+        float min = getMin();
+        float diff = value - min;
+        return diff * DIFF_LIMITER;
+    }
+
+    // averaged value into display/CC values between 0 & 1
+    private float getNextValue(float value) {
+        float last = getLast();
+        float maxLimiter = getMaxLimiter(value);
+        float minLimiter = getMinLimiter(value);
+        if (value > last) {
+            value += INC_DEC_AMOUNT * maxLimiter;
+        } else {
+            value -= INC_DEC_AMOUNT * minLimiter;
+        }
+
+        if (value >= 1) {
+            value = 1;
+        }
+
+        if (value <= 0) {
+            value = 0;
+        }
+
+        return value;
     }
 
     public void updateUserValue(float value) {
@@ -75,24 +133,5 @@ public class AttentionEngine {
     protected void updateRange(float value) {
         updateMax(value);
         updateMin(value);
-    }
-
-    public float getValue() {
-        float value = 0;
-        for (MuseModel model : getModels()) {
-            value += model.getCurr(); // values averaged
-        }
-        float averaged = value / getModels().length;
-        updateRange(averaged);
-        float valueInRange = calculateValueInRange(averaged);
-        return valueInRange;
-    }
-
-    protected float calculateValueInRange(float value) {
-        float max = getMax();
-        float min = getMin();
-        float range = max - min;
-        float valueInRange = (value - min) / range;
-        return valueInRange;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class DustTunnel extends PApplet {
-    final boolean IS_USING_HEADSET = true;
+    final boolean IS_USING_HEADSET = false;
     // signal options
     final String ALPHA_ADDRESS_PATTERN = "/muse/elements/alpha_absolute";
     final String BETA_ADDRESS_PATTERN = "/muse/elements/beta_absolute";
@@ -186,7 +186,7 @@ public class DustTunnel extends PApplet {
 
         attentionEngine.update();
 
-        lightEngine.update(model);
+//        lightEngine.update(model);
 
         redraw();
     }
@@ -204,9 +204,6 @@ public class DustTunnel extends PApplet {
             controllerEngine.reset();
         }
 
-//        for (LightEngine lightEngine : lightEngines) {
-//            lightEngine.reset();
-//        }
         lightEngine.reset();
 
         // attention will go down with other CCs
