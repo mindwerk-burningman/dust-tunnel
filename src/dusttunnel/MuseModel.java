@@ -98,9 +98,14 @@ public class MuseModel {
         return getCurr() > getLast();
     }
 
-    private void update(float value) {
+    public void update(OscMessage msg) {
+        float[] values = getValues(msg);
+        float averaged = getCleanAverage(values) * K;
+        updateRange(averaged);
         setLast(getCurr());
-        setCurr(value);
+        setCurr(averaged);
+        float value = getNextValue(averaged);
+        updateUserValue(value);
     }
 
     // averaged values
@@ -155,21 +160,6 @@ public class MuseModel {
 
     public float getUserValue() {
         return _userValue;
-    }
-
-    /**
-     * get the value for the band after sanitation / smoothing
-     * @param msg from osc event
-     * @return float
-     */
-    public float getValue(OscMessage msg) {
-        float[] values = getValues(msg);
-        float averaged = getCleanAverage(values) * K;
-        updateRange(averaged);
-        update(averaged);
-        float value = getNextValue(averaged);
-        updateUserValue(value);
-        return value;
     }
 
     /**

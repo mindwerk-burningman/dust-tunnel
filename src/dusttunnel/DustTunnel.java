@@ -44,10 +44,12 @@ public class DustTunnel extends PApplet {
 
     // midi
     MidiBus midiBus;
+
     String MIDI_BUS_CHANNEL = "MIDI Monitor (Untitled)";
 //    String MIDI_BUS_CHANNEL = "DustTunnel";
+
     int NUM_CONTROLLER_ENGINES = 4;
-    int CONTROLLER_NUMBER_OFFSET = 0;
+    int CONTROLLER_CHANNEL = 0;
     int NUM_NOTE_ENGINES = 3;
 
     // engines
@@ -55,6 +57,7 @@ public class DustTunnel extends PApplet {
     ControllerEngine[] controllerEngines = new ControllerEngine[NUM_CONTROLLER_ENGINES];
     AttentionEngine attentionEngine;
     LightEngine lightEngine;
+    TriggerEngine triggerEngine;
 
     boolean shouldReceiveMessages = false; // control flow switch
 
@@ -77,6 +80,7 @@ public class DustTunnel extends PApplet {
         initControllerEngines();
         initAttentionEngine();
         initLightEngine();
+        initTriggerEngine();
 
         // avoid getting osc messages before initialized
         shouldReceiveMessages = true;
@@ -126,18 +130,40 @@ public class DustTunnel extends PApplet {
     }
 
     private void initControllerEngines() {
-        for (int i = 0; i < controllerEngines.length; i++) {
-            controllerEngines[i] = new ControllerEngine(0, i + CONTROLLER_NUMBER_OFFSET, midiBus);
-        }
+
+        // bass
+        ControllerEngine cutoff = new ControllerEngine(CONTROLLER_CHANNEL, 9, midiBus);
+        cutoff.setMaxValue(25);
+        cutoff.setModel(beta);
+
+        // pads
+        ControllerEngine glide = new ControllerEngine(CONTROLLER_CHANNEL, 7, midiBus);
+        glide.setMaxValue(64);
+        glide.setModel(theta);
+
+        // sparkles
+        ControllerEngine stereoVerb = new ControllerEngine(CONTROLLER_CHANNEL, 1, midiBus);
+        stereoVerb.setModel(alpha);
+        ControllerEngine verbTime = new ControllerEngine(CONTROLLER_CHANNEL, 1, midiBus);
+        verbTime.setModel(gamma);
+
+        controllerEngines[0] = cutoff;
+        controllerEngines[1] = glide;
+        controllerEngines[2] = stereoVerb;
+        controllerEngines[3] = verbTime;
     }
 
     private void initAttentionEngine() {
-        MuseModel[] models = {alpha, gamma};
+        MuseModel[] models = {alpha, beta, gamma, theta};
         attentionEngine = new AttentionEngine(models);
     }
 
     private void initLightEngine() {
         lightEngine = new LightEngine(oscP5);
+    }
+
+    private void initTriggerEngine() {
+        triggerEngine = new TriggerEngine(attentionEngine);
     }
 
     public void settings() {
@@ -176,9 +202,10 @@ public class DustTunnel extends PApplet {
         rect(x, y, bandWidth, height);
     }
 
-    private void updateSystems(MuseModel model, OscMessage msg, int modelIndex) {
-        float value = model.getValue(msg);
-        controllerEngines[modelIndex].update(value);
+    private void updateSystems(MuseModel model) {
+        for (ControllerEngine engine : controllerEngines) {
+            engine.update(model);
+        }
 
         for (NoteEngine noteEngine : noteEngines) {
             noteEngine.update(model);
@@ -187,6 +214,9 @@ public class DustTunnel extends PApplet {
         attentionEngine.update();
 
 //        lightEngine.update(model);
+
+//        triggerEngine.update();
+
 
         redraw();
     }
@@ -206,6 +236,9 @@ public class DustTunnel extends PApplet {
 
         lightEngine.reset();
 
+        println("resetting");
+
+//        triggerEngine.reset();
         // attention will go down with other CCs
 
     }
@@ -249,7 +282,8 @@ public class DustTunnel extends PApplet {
     private void update(OscMessage msg) {
         for (int i = 0; i < models.length; i++) {
             if (models[i].isValidMsg(msg)) {
-                updateSystems(models[i], msg, i);
+                models[i].update(msg);
+                updateSystems(models[i]);
             }
         }
     }

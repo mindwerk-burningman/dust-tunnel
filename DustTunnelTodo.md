@@ -35,10 +35,12 @@
 
 ## DustTunnel ##
 
-* inc_dec for note engine probabilities
-  - implement based on model is increasing?
-* smoothing algo inbetween values/CC messages?
+<!-- * inc_dec for note engine probabilities -->
+  <!-- - implement based on model is increasing? -->
+* connecting CC messages
+  - pass model to them
   - may be solved with model updates
+  - may want to do percentage between min/max
 * bug with losing connections and osc complaining...
 <!-- * inc/dec methods of changing model values instead of within range -->
   <!-- - figure out amount of which to do so -->

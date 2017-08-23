@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" line="74" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="119" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" line="109" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="124" />
     <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/NoteEngine.java" line="144" />
-    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="152" />
+    <bookmark url="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java" line="157" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50a6c5f0-0977-4df4-8f2c-46dd282dd4e1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/dusttunnel/TriggerEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DustTunnelTodo.md" afterPath="$PROJECT_DIR$/DustTunnelTodo.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java" afterPath="$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" afterPath="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" afterPath="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" afterPath="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" />
     </list>
     <ignored path="dust-tunnel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,24 +38,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DustTunnel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DustTunnel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="153" column="30" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+            <state relative-caret-position="799">
+              <caret line="279" column="5" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
+                <element signature="e#2531#2532#0" expanded="true" />
+                <element signature="e#2595#2596#0" expanded="true" />
                 <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
-                <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
-                <element signature="e#4362#4363#0" expanded="true" />
-                <element signature="e#4414#4415#0" expanded="true" />
+                <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+                <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
                 <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
-                <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,8 +64,8 @@
       <file leaf-file-name="MuseModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1470">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            <state relative-caret-position="139">
+              <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#MuseModel#1;class#MuseModel#0" expanded="false" />
@@ -72,33 +77,59 @@
                 <element signature="e#1905#1906#0" expanded="true" />
                 <element signature="e#1942#1943#0" expanded="true" />
                 <element signature="e#1986#1987#0" expanded="true" />
-                <element signature="method#updateRange#0;class#MuseModel#0" expanded="false" />
-                <element signature="e#3252#3253#0" expanded="true" />
-                <element signature="e#3286#3287#0" expanded="true" />
-                <element signature="e#3321#3322#0" expanded="true" />
-                <element signature="e#3354#3355#0" expanded="true" />
+                <element signature="e#3461#3462#0" expanded="true" />
+                <element signature="e#3495#3496#0" expanded="true" />
+                <element signature="e#3530#3531#0" expanded="true" />
+                <element signature="e#3563#3564#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttentionEngine.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttentionEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="135" column="5" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
+            <state relative-caret-position="195">
+              <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#779#780#0" expanded="true" />
-                <element signature="e#808#809#0" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#869#870#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
+                <element signature="e#840#841#0" expanded="true" />
+                <element signature="e#868#869#0" expanded="true" />
                 <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
                 <element signature="method#updateMin#0;class#AttentionEngine#0" expanded="false" />
-                <element signature="e#2770#2771#0" expanded="true" />
-                <element signature="e#2804#2805#0" expanded="true" />
-                <element signature="e#2839#2840#0" expanded="true" />
-                <element signature="e#2872#2873#0" expanded="true" />
+                <element signature="e#2782#2783#0" expanded="true" />
+                <element signature="e#2816#2817#0" expanded="true" />
+                <element signature="e#2851#2852#0" expanded="true" />
+                <element signature="e#2884#2885#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControllerEngine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="86" column="74" selection-start-line="86" selection-start-column="74" selection-end-line="86" selection-end-column="74" />
+              <folding>
+                <element signature="e#947#948#0" expanded="true" />
+                <element signature="e#980#981#0" expanded="true" />
+                <element signature="e#1032#1033#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
+                <element signature="e#1103#1104#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+                <element signature="e#1210#1211#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
+                <element signature="e#1275#1276#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1350#1351#0" expanded="true" />
+                <element signature="e#1395#1396#0" expanded="true" />
+                <element signature="e#1425#1426#0" expanded="true" />
+                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#1490#1491#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,13 +165,14 @@
         <option value="$PROJECT_DIR$/src/museplayerrcv/museplayerrcv.java" />
         <option value="$PROJECT_DIR$/src/museparser/museparser.java" />
         <option value="$PROJECT_DIR$/src/dusttunnel/NoteFactory.java" />
-        <option value="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/dusttunnel/NoteEngine.java" />
-        <option value="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" />
         <option value="$PROJECT_DIR$/src/dusttunnel/LightEngine.java" />
-        <option value="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" />
         <option value="$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/TriggerEngine.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/MuseModel.java" />
+        <option value="$PROJECT_DIR$/src/dusttunnel/DustTunnel.java" />
       </list>
     </option>
   </component>
@@ -484,6 +516,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dust-tunnel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smoothcc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -950,29 +1000,29 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279503" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3341615" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994923" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -990,13 +1040,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/dusttunnel/LightEngine.java</url>
-          <line>58</line>
+          <url>file://$PROJECT_DIR$/src/dusttunnel/TriggerEngine.java</url>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="179" />
+          <option name="timeStamp" value="202" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="180" />
+      <option name="time" value="203" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1013,15 +1063,15 @@
             <element signature="imports" expanded="true" />
             <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="true" />
+            <element signature="e#2595#2596#0" expanded="true" />
             <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="e#4362#4363#0" expanded="true" />
-            <element signature="e#4414#4415#0" expanded="true" />
+            <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,12 +1080,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
           <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getNoteNumber#0;class#NoteEngine#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,15 +1092,15 @@
             <element signature="imports" expanded="true" />
             <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="true" />
+            <element signature="e#2595#2596#0" expanded="true" />
             <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="e#4362#4363#0" expanded="true" />
-            <element signature="e#4414#4415#0" expanded="true" />
+            <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
             <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1075,11 +1120,10 @@
             <element signature="e#1905#1906#0" expanded="true" />
             <element signature="e#1942#1943#0" expanded="true" />
             <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="method#updateRange#0;class#MuseModel#0" expanded="false" />
-            <element signature="e#3252#3253#0" expanded="true" />
-            <element signature="e#3286#3287#0" expanded="true" />
-            <element signature="e#3321#3322#0" expanded="true" />
-            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#3461#3462#0" expanded="true" />
+            <element signature="e#3495#3496#0" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#3563#3564#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1090,16 +1134,16 @@
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
             <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
             <element signature="method#updateMin#0;class#AttentionEngine#0" expanded="false" />
-            <element signature="e#2770#2771#0" expanded="true" />
-            <element signature="e#2804#2805#0" expanded="true" />
-            <element signature="e#2839#2840#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#2782#2783#0" expanded="true" />
+            <element signature="e#2816#2817#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1109,7 +1153,22 @@
         <state relative-caret-position="960">
           <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1032#1033#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1425#1426#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1490#1491#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1118,12 +1177,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getNoteNumber#0;class#NoteEngine#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1258,23 +1312,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/smoothcc/smoothcc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="53" column="47" selection-start-line="53" selection-start-column="47" selection-end-line="53" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/osctest/osctest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1290,19 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dusttunnel/NoteEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getNoteNumber#0;class#NoteEngine#0" expanded="false" />
-            <element signature="e#2681#2682#0" expanded="true" />
-            <element signature="e#2730#2731#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Documents/Processing/libraries/oscP5/library/oscP5.jar!/oscP5/OscP5.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1313,39 +1337,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/LightEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        <state relative-caret-position="318">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/NoteEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="153" column="30" selection-start-line="153" selection-start-column="30" selection-end-line="153" selection-end-column="30" />
+        <state relative-caret-position="537">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/TriggerEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#initControllerEngines#0;class#DustTunnel#0" expanded="false" />
-            <element signature="e#4362#4363#0" expanded="true" />
-            <element signature="e#4414#4415#0" expanded="true" />
-            <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
-            <element signature="method#update#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1946#1947#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/smoothcc/smoothcc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/ControllerEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="86" column="74" selection-start-line="86" selection-start-column="74" selection-end-line="86" selection-end-column="74" />
+          <folding>
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1032#1033#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1350#1351#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1425#1426#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1490#1491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
+            <element signature="method#updateMin#0;class#AttentionEngine#0" expanded="false" />
+            <element signature="e#2782#2783#0" expanded="true" />
+            <element signature="e#2816#2817#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+            <element signature="e#2884#2885#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dusttunnel/MuseModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1470">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        <state relative-caret-position="139">
+          <caret line="107" column="31" selection-start-line="107" selection-start-column="31" selection-end-line="107" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#MuseModel#1;class#MuseModel#0" expanded="false" />
@@ -1357,31 +1439,31 @@
             <element signature="e#1905#1906#0" expanded="true" />
             <element signature="e#1942#1943#0" expanded="true" />
             <element signature="e#1986#1987#0" expanded="true" />
-            <element signature="method#updateRange#0;class#MuseModel#0" expanded="false" />
-            <element signature="e#3252#3253#0" expanded="true" />
-            <element signature="e#3286#3287#0" expanded="true" />
-            <element signature="e#3321#3322#0" expanded="true" />
-            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#3461#3462#0" expanded="true" />
+            <element signature="e#3495#3496#0" expanded="true" />
+            <element signature="e#3530#3531#0" expanded="true" />
+            <element signature="e#3563#3564#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dusttunnel/AttentionEngine.java">
+    <entry file="file://$PROJECT_DIR$/src/dusttunnel/DustTunnel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="135" column="5" selection-start-line="135" selection-start-column="5" selection-end-line="135" selection-end-column="5" />
+        <state relative-caret-position="799">
+          <caret line="279" column="5" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="method#updateMax#0;class#AttentionEngine#0" expanded="false" />
-            <element signature="method#updateMin#0;class#AttentionEngine#0" expanded="false" />
-            <element signature="e#2770#2771#0" expanded="true" />
-            <element signature="e#2804#2805#0" expanded="true" />
-            <element signature="e#2839#2840#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="method#setup#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#init#0;class#DustTunnel#0" expanded="false" />
+            <element signature="e#2531#2532#0" expanded="true" />
+            <element signature="e#2595#2596#0" expanded="true" />
+            <element signature="method#initModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initNoteEngines#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#initAttentionEngine#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#draw#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#drawModels#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#checkHeadsetStatus#0;class#DustTunnel#0" expanded="false" />
+            <element signature="method#oscEvent#0;class#DustTunnel#0" expanded="false" />
           </folding>
         </state>
       </provider>

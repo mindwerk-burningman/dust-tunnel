@@ -9,13 +9,15 @@ import java.util.TimerTask;
 public class ControllerEngine {
 
     MidiBus midiBus;
+    private MuseModel _model;
+    private Timer timer = new Timer();
 
     private int _channel;
     private int _controllerNumber;
     private int _last;
-    final int MAX_CONTROLLER_VALUE = 127;
-    final int MAX_VALUE_DIFF = 10;
-    private Timer timer = new Timer();
+    private int _maxValue = 127;
+    private int _minValue = 0;
+    private boolean _isInverse = false;
 
     public ControllerEngine(int channel, int controllerNumber, MidiBus midiBus) {
         _channel = channel;
@@ -39,22 +41,55 @@ public class ControllerEngine {
         return _last;
     }
 
-    private int smooth(int value) {
-        int last = getLast();
-        int diff = value - last;
+    private boolean getIsInverse() {
+        return _isInverse;
+    }
 
-        if (last > 0 && Math.abs(diff) > MAX_VALUE_DIFF) {
-            return value + (int) Math.floor(diff / 2);
+    private void setIsInverse(boolean isInverse) {
+        _isInverse = isInverse;
+    }
+
+    private int getMaxValue() {
+        return _maxValue;
+    }
+
+    public void setMaxValue(int value) {
+        _maxValue = value;
+    }
+
+    private int getMinValue() {
+        return _minValue;
+    }
+
+    public void setMinValue(int value) {
+        _minValue = value;
+    }
+
+    public void setModel(MuseModel model) {
+        _model = model;
+    }
+
+    private MuseModel getModel() {
+        return _model;
+    }
+
+    // 0 - 1 => min - max
+    private int getValue(float userValue) {
+        int value = (int) Math.floor(userValue * getMaxValue() - getMinValue()) + getMinValue();
+        if (getIsInverse()) {
+            return getMaxValue() - value;
         }
         return value;
     }
 
-    public void update(float value) {
-        int controllerValue = (int) Math.floor(value * MAX_CONTROLLER_VALUE);
-        int smoothed = smooth(controllerValue);
-        ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), smoothed);
-        midiBus.sendControllerChange(controlChange);
-        setLast(smoothed);
+    // 0 - 1
+    public void update(MuseModel model) {
+        if (model.getAddressPattern() == getModel().getAddressPattern()) {
+            int value = getValue(model.getUserValue());
+            ControlChange controlChange = new ControlChange(getChannel(), getControllerNumber(), value);
+            midiBus.sendControllerChange(controlChange);
+            setLast(value);
+        }
     }
 
     private void fadeOut() {

@@ -11,7 +11,7 @@ public class AttentionEngine {
     private float _curr;
     private float _min = 0;
     private float _max = 1;
-    private float K = 1.25f;
+    private float K = 1.5f;
     private float _userValue;
     final float INC_DEC_AMOUNT = 0.00001f;
     // larger values = more limiting
@@ -79,7 +79,7 @@ public class AttentionEngine {
         setLast(getCurr());
         setCurr(mean);
         float userValue = getNextValue(mean);
-        updateUserValue(userValue);
+        updateUserValue(userValue * K);
     }
 
     /**
@@ -106,9 +106,9 @@ public class AttentionEngine {
         float maxLimiter = getMaxLimiter(value);
         float minLimiter = getMinLimiter(value);
         if (value > last) {
-            value += INC_DEC_AMOUNT * maxLimiter;
+            value += INC_DEC_AMOUNT; //  * maxLimiter;
         } else {
-            value -= INC_DEC_AMOUNT * minLimiter;
+            value -= INC_DEC_AMOUNT; // * minLimiter;
         }
 
         if (value >= 1) {
