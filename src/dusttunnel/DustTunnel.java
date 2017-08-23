@@ -144,7 +144,7 @@ public class DustTunnel extends PApplet {
         // sparkles
         ControllerEngine stereoVerb = new ControllerEngine(CONTROLLER_CHANNEL, 1, midiBus);
         stereoVerb.setModel(alpha);
-        ControllerEngine verbTime = new ControllerEngine(CONTROLLER_CHANNEL, 1, midiBus);
+        ControllerEngine verbTime = new ControllerEngine(CONTROLLER_CHANNEL, 2, midiBus);
         verbTime.setModel(gamma);
 
         controllerEngines[0] = cutoff;
@@ -216,7 +216,6 @@ public class DustTunnel extends PApplet {
 //        lightEngine.update(model);
 
 //        triggerEngine.update();
-
 
         redraw();
     }
